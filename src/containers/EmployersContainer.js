@@ -1,6 +1,7 @@
 import React from 'react'
 import EmployerCard from '../components/EmployerCard'
 import EmployerShow from '../components/EmployerShow'
+// import {Route} from 'react-router-dom'
 
 
 class EmployersContainer extends React.Component {
@@ -35,11 +36,11 @@ class EmployersContainer extends React.Component {
         return (
             <div>
                 <h1>Employer Container</h1>
-                    {this.state.employerClicked ? 
-                        <EmployerShow key={this.state.employerToShow.id} employer={this.state.employerToShow}/>
-                        :
-                        employerCards
-                    }
+                     {this.state.employerClicked ?  
+                         <EmployerShow key={this.state.employerToShow.id} employer={this.state.employerToShow}/>
+                         :
+                         employerCards
+                 } 
             </div>
         )
     }
@@ -47,3 +48,14 @@ class EmployersContainer extends React.Component {
 }
 
 export default EmployersContainer;
+
+
+//trying to get it to work like the video...
+
+// <Route path="/employers/:id" render= {({ match }) => {
+//     let employerId = parseInt(match.params.id)
+//     let employerObj = this.state.allEmployers.find(employer => employer.id === employerId)
+//     return                     
+//     console.log('employer obj: ', employerObj)
+
+// }} />

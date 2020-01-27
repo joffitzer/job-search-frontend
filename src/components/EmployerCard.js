@@ -1,7 +1,6 @@
 import React from 'react'
 
 const EmployerCard = (props) => {
-
     return(
         <div>
             <h5>Employer Card</h5>
