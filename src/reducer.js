@@ -1,7 +1,10 @@
 let defaultState = {
     allEmployers: [],
     employerClicked: false,
-    employerToShow: []
+    employerToShow: [],
+    allJobs: [],
+    jobsClicked: false,
+    jobToShow: []
 }
 
 let reducer = (prevState=defaultState, action) => {
@@ -16,6 +19,16 @@ let reducer = (prevState=defaultState, action) => {
             employerClicked: !prevState.employerClicked,
             employerToShow: action.payload.employer
         }
+        case 'GET_JOBS': 
+          return {...prevState, 
+            allJobs: action.payload.jobs,
+            jobClicked: false
+        }
+        case 'SHOW_JOB': 
+        return {...prevState, 
+            jobClicked: !prevState.jobClicked,
+            jobToShow: action.payload.job
+      }
         default: 
           return {...prevState}
     }
