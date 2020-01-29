@@ -11,6 +11,7 @@ const JobShow = (props) => {
             <h5>Location: {props.jobToShow.attributes.location}</h5>
             <h5>Category: {props.jobToShow.attributes.category}</h5>
             <h5>Summary: {props.jobToShow.attributes.summary}</h5>
+            <button>APPLY TO THIS JOB</button>
         </div>
     )
 }
