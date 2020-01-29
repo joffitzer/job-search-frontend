@@ -3,8 +3,6 @@ import { connect as cnx } from 'react-redux';
 
 const JobShow = (props) => {
 
-    console.log('job show page props :', props)
-
     return(
         <div>
             <h5>Job Show Page</h5>

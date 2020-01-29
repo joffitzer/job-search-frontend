@@ -5,8 +5,6 @@ import { showJob } from '../actionCreators'
 
 const JobCard = (props) => {
 
-    console.log('jobcard props :', props)
-
     return(
         <div>
             <h5>Job Card</h5>
