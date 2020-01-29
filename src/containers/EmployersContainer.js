@@ -1,9 +1,7 @@
 import React from 'react'
 import EmployerCard from '../components/EmployerCard'
-import EmployerShow from '../components/EmployerShow'
 import { connect as cnx } from 'react-redux';
-import { getEmployers, showEmployer } from '../actionCreators'
-
+import { getEmployers } from '../actionCreators'
 
 class EmployersContainer extends React.Component {
 
@@ -14,43 +12,35 @@ class EmployersContainer extends React.Component {
                 this.props.getEmployers(employers)
             })
     }
-
-    showEmployer = (employer) => {
-        this.props.showEmployer(employer)
-    }
    
     render() {
 
-        let employerCards = this.props.allEmployers.map( employerObj => {
-            return <EmployerCard key={employerObj.id} employer={employerObj} showEmployer={this.showEmployer}/>
-        })
+        let employerCards
+
+        if (this.props.allEmployers.data){
+            employerCards = this.props.allEmployers.data.map( empObj => {
+            return <EmployerCard key={empObj.id} employer={empObj}/>
+        })} 
 
         return (
             <div>
-                <h1>Employer Container</h1>
-                    {this.props.employerClicked ?  
-                         <EmployerShow />
-                         :
-                         employerCards
-                    } 
+                <h1>All Employers:</h1>
+                    {employerCards}
             </div>
         )
     }
 }
 
 const mapStateToProps = (state) => {
-
-    let { allEmployers, employerClicked } = state;
-  
+    let { allEmployers } = state;
     return {
-      allEmployers, employerClicked
+      allEmployers
     }
   }
   
 const mapDispatchToProps = (dispatch) => {
     return {
       getEmployers: (employers) => dispatch(getEmployers(employers)),
-      showEmployer: (employer) => dispatch(showEmployer(employer))
     }
   }
 

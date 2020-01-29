@@ -21,21 +21,21 @@ class JobsContainer extends React.Component {
    
     render() {
 
-        // let jobCards = this.props.allJobs.data.map( jobObj => {
-        //     return <JobCard key={jobObj.id} job={jobObj} showJob={this.showJob}/>
-        // })
+        let jobCards
 
-        console.log('this.props: ', this.props)
-        console.log('this.props.allJobs.data: ', this.props.allJobs.data)
+        if (this.props.allJobs.data){
+            jobCards = this.props.allJobs.data.map( jobObj => {
+            return <JobCard key={jobObj.id} job={jobObj} showJob={this.showJob}/>
+        })} 
 
         return (
             <div>
                 <h1>Jobs Container</h1>
-                    {/* {this.props.jobClicked ?  
+                    {this.props.jobClicked ?  
                          <JobShow />
                          :
                          jobCards
-                    }  */}
+                    } 
             </div>
         )
     }

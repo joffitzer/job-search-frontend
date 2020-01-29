@@ -3,7 +3,7 @@ let defaultState = {
     employerClicked: false,
     employerToShow: [],
     allJobs: [],
-    jobsClicked: false,
+    jobClicked: false,
     jobToShow: []
 }
 
