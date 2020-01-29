@@ -26,12 +26,12 @@ let reducer = (prevState=defaultState, action) => {
             jobClicked: false
         }
         case 'SHOW_JOB': 
-        return {...prevState, 
+          return {...prevState, 
             jobClicked: !prevState.jobClicked,
             jobToShow: action.payload.job
       }
-      case 'LOG_IN': 
-        return {...prevState,
+        case 'LOG_IN': 
+          return {...prevState,
             loggedInUser: action.payload.user
       }
         default: 

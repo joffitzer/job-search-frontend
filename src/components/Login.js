@@ -20,10 +20,17 @@ class Login extends React.Component {
     
     render(){
 
+        let user
+
+        if (this.state.user.data) {
+            console.log('login page this.state: ', this.state.user.data[0])
+            user = this.state.user.data[0]
+        }
+
         return(
             <div>
                 <h1>Login</h1>
-                <button onClick={() => this.props.logInUser(this.state.user)}>Log In</button>
+                <button onClick={() => this.props.logInUser(user)}>Log In</button>
             </div>
         )
     }
