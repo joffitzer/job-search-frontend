@@ -23,7 +23,6 @@ class Login extends React.Component {
         let user
 
         if (this.state.user.data) {
-            console.log('login page this.state: ', this.state.user.data[0])
             user = this.state.user.data[0]
         }
 

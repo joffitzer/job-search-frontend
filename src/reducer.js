@@ -1,5 +1,6 @@
 let defaultState = {
     loggedInUser: [],
+    isLoggedIn: false,
     allEmployers: [],
     employerClicked: false,
     employerToShow: [],
@@ -32,7 +33,8 @@ let reducer = (prevState=defaultState, action) => {
       }
         case 'LOG_IN': 
           return {...prevState,
-            loggedInUser: action.payload.user
+            loggedInUser: action.payload.user,
+            isLoggedIn: true
       }
         default: 
           return {...prevState}

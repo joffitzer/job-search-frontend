@@ -1,5 +1,4 @@
 import React from 'react'
-// import { connect as cnx } from 'react-redux';
 
 const PortfolioCard = (props) => {
 
@@ -15,13 +14,5 @@ const PortfolioCard = (props) => {
         </div>
     )
 }
-  
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//       showEmployer: (employer) => dispatch(showEmployer(employer))
-//     }
-//   }
-
-// export default cnx(null, mapDispatchToProps)(PortfolioCard);
 
 export default PortfolioCard

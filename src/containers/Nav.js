@@ -2,26 +2,31 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { connect as cnx } from 'react-redux'
 
-const Nav = (props) => {
+class Nav extends React.Component {
 
-    return (
-        <div>
-            <h5>Logged In User: {props.loggedInUser.attributes ? props.loggedInUser.attributes.first_name : ""}</h5>
-            <Link to="/login"><div>Log In</div></Link>
-            <Link to="/home"><div>Home</div></Link>
-            <Link to="/employers"><div>All Employers</div></Link>
-            <Link to="/jobs"><div>All Jobs</div></Link>
-            <Link to="/profile"><div>My Profile</div></Link>
-            <hr></hr>
-        </div>
-    )
+
+    render() {
+
+        return (
+            <div>
+                <h5>Logged In User: {this.props.isLoggedIn ? this.props.loggedInUser.attributes.first_name : "Nope"}</h5>
+                <Link to="/login"><div>Log In</div></Link>
+                <Link to="/home"><div>Home</div></Link>
+                <Link to="/employers"><div>All Employers</div></Link>
+                <Link to="/jobs"><div>All Jobs</div></Link>
+                <Link to="/profile"><div>My Profile</div></Link>
+                <hr></hr>
+            </div>
+        )
+    }
+
 }
 
 const mapStateToProps = (state) => {
-    let { loggedInUser } = state;
+    let { loggedInUser, isLoggedIn } = state;
   
     return {
-        loggedInUser
+        loggedInUser, isLoggedIn
     }
   }
 

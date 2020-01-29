@@ -21,7 +21,7 @@ class ProfileContainer extends React.Component {
 
         let user 
 
-        if (this.props.loggedInUser.attributes){
+        if (this.props.loggedInUser){
             user = this.props.loggedInUser.attributes
         }
 
