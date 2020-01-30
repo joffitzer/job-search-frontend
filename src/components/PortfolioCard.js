@@ -2,8 +2,6 @@ import React from 'react'
 
 const PortfolioCard = (props) => {
 
-    console.log('portfolio card props: ', props)
-
     return(
         <div>
             <h5>Portfolio Card</h5>

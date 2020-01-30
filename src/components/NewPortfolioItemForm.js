@@ -47,8 +47,6 @@ class NewPortfolioItemForm extends React.Component {
 
     render() {
 
-        console.log('logged in user: ', this.props.loggedInUser)
-
         return(
             <form onSubmit={this.handleSubmit}>
                 <label>
