@@ -2,11 +2,13 @@ import React from 'react';
 import { connect as cnx } from 'react-redux';
 // import { getJobs, showJob } from '../actionCreators';
 import PortfolioCard from '../components/PortfolioCard'
+import NewPortfolioItemForm from '../components/NewPortfolioItemForm'
 
 class ProfileContainer extends React.Component {
 
     state = {
-        allPortfolioItems: []
+        allPortfolioItems: [],
+        showForm: false
     }
 
     componentDidMount() {
@@ -16,22 +18,34 @@ class ProfileContainer extends React.Component {
                 allPortfolioItems: items
             }))
     }
+
+    renderNewItemForm = () => {
+        this.setState({
+            showForm: !this.state.showForm
+        })
+    }
    
     render() {
 
         let user 
-
         if (this.props.loggedInUser){
             user = this.props.loggedInUser.attributes
         }
 
-        let portfolioItemsArray
-
+        let allItemsArray
+        let myItems
         if (this.state.allPortfolioItems.data){
-            portfolioItemsArray = this.state.allPortfolioItems.data.map(portItemObj => {
+            allItemsArray = this.state.allPortfolioItems.data
+            myItems = allItemsArray.filter(itemObj => parseInt(this.props.loggedInUser.id) === itemObj.attributes.user.id) 
+        }
+
+        let portfolioItemsArray
+        if (myItems){
+            portfolioItemsArray = myItems.map(portItemObj => {
                 return <PortfolioCard key={portItemObj.id} item={portItemObj}/>
             })
         }
+
 
         return (
             <div>
@@ -45,11 +59,11 @@ class ProfileContainer extends React.Component {
                     <h5>Graduated: {user.grad_month}/{user.grad_year}</h5>
                     <hr></hr>
                     <h3>My Portfolio:</h3>
-                    <button>Add to my portfolio</button>
-                    {/* fetch to the portfolio table, get all rows that belong to this user, map over them
-                    and render portfolio cards here */}
-                    {portfolioItemsArray}
-
+                    <button onClick={this.renderNewItemForm}>Add to my portfolio</button>
+                    {this.state.showForm ? 
+                        <NewPortfolioItemForm />
+                        :
+                        portfolioItemsArray}
             </div>
         )
     }
