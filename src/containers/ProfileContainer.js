@@ -20,18 +20,24 @@ class ProfileContainer extends React.Component {
     render() {
 
         let user 
-
         if (this.props.loggedInUser){
             user = this.props.loggedInUser.attributes
         }
 
-        let portfolioItemsArray
-
+        let allItemsArray
+        let myItems
         if (this.state.allPortfolioItems.data){
-            portfolioItemsArray = this.state.allPortfolioItems.data.map(portItemObj => {
+            allItemsArray = this.state.allPortfolioItems.data
+            myItems = allItemsArray.filter(itemObj => parseInt(this.props.loggedInUser.id) === itemObj.attributes.user.id) 
+        }
+
+        let portfolioItemsArray
+        if (myItems){
+            portfolioItemsArray = myItems.map(portItemObj => {
                 return <PortfolioCard key={portItemObj.id} item={portItemObj}/>
             })
         }
+
 
         return (
             <div>
@@ -46,10 +52,7 @@ class ProfileContainer extends React.Component {
                     <hr></hr>
                     <h3>My Portfolio:</h3>
                     <button>Add to my portfolio</button>
-                    {/* fetch to the portfolio table, get all rows that belong to this user, map over them
-                    and render portfolio cards here */}
                     {portfolioItemsArray}
-
             </div>
         )
     }
