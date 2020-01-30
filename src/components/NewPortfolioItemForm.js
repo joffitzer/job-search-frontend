@@ -23,7 +23,11 @@ class NewPortfolioItemForm extends React.Component {
                 git_url: this.state.urlValue,
                 user_id: this.props.loggedInUser.id
             })
-        })
+        }).then(this.setState({
+            titleValue: "",
+            blurbValue: "",
+            urlValue: ""
+        }))
     }
 
     handleTitleChange = (e) => {
