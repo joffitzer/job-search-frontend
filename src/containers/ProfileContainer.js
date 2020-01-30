@@ -2,11 +2,13 @@ import React from 'react';
 import { connect as cnx } from 'react-redux';
 // import { getJobs, showJob } from '../actionCreators';
 import PortfolioCard from '../components/PortfolioCard'
+import NewPortfolioItemForm from '../components/NewPortfolioItemForm'
 
 class ProfileContainer extends React.Component {
 
     state = {
-        allPortfolioItems: []
+        allPortfolioItems: [],
+        showForm: false
     }
 
     componentDidMount() {
@@ -15,6 +17,12 @@ class ProfileContainer extends React.Component {
             .then(items => this.setState({
                 allPortfolioItems: items
             }))
+    }
+
+    renderNewItemForm = () => {
+        this.setState({
+            showForm: !this.state.showForm
+        })
     }
    
     render() {
@@ -51,8 +59,11 @@ class ProfileContainer extends React.Component {
                     <h5>Graduated: {user.grad_month}/{user.grad_year}</h5>
                     <hr></hr>
                     <h3>My Portfolio:</h3>
-                    <button>Add to my portfolio</button>
-                    {portfolioItemsArray}
+                    <button onClick={this.renderNewItemForm}>Add to my portfolio</button>
+                    {this.state.showForm ? 
+                        <NewPortfolioItemForm />
+                        :
+                        portfolioItemsArray}
             </div>
         )
     }

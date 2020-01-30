@@ -22,9 +22,15 @@ class Login extends React.Component {
 
         let user
 
+        //this was working
+        // if (this.state.user.data) {
+        //     user = this.state.user.data[0]
+        // }
+
         if (this.state.user.data) {
             user = this.state.user.data[0]
         }
+
 
         return(
             <div>
