@@ -34,9 +34,6 @@ class UserAppForm extends React.Component {
 
     render() {
 
-        console.log('job in user app form: ', this.props.jobToShow)
-        console.log('user in user app form: ', this.props.loggedInUser)
-
         return(
             <form onSubmit={this.handleSubmitApplication}>
                 <label>
