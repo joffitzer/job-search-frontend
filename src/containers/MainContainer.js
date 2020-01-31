@@ -6,7 +6,8 @@ import EmployersContainer from '../containers/EmployersContainer'
 import EmployerShow from '../components/EmployerShow'
 import JobsContainer from '../containers/JobsContainer'
 import JobShow from '../components/JobShow'
-import ProfileContainer from './ProfileContainer'
+import ProfileContainer from '../containers/ProfileContainer'
+import UserAppsContainer from '../containers/UserAppsContainer'
 
 const MainContainer = () => {
     return (
@@ -19,6 +20,7 @@ const MainContainer = () => {
             <Route exact path="/employers/:id" component={EmployerShow} />
             <Route exact path="/jobs" component={JobsContainer} />
             <Route exact path="/jobs/:id" component={JobShow} />
+            <Route exact path="/myapps" component={UserAppsContainer} />
         </div>
     )
 }

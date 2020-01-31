@@ -12,9 +12,16 @@ const getJobs = (jobs) =>({type: GET_JOBS, payload: { jobs }})
 const showJob = (job) => ({type: SHOW_JOB, payload: { job }})
 
 
+const GET_USER_APPS = "GET_USER_APPS"
+const SHOW_USER_APP = "SHOW_USER_APP"
+
+const getUserApps = (userApps) =>({type: GET_USER_APPS, payload: { userApps }})
+const showUserApp = (userApp) => ({type: SHOW_USER_APP, payload: { userApp }})
+
+
 const LOG_IN = "LOG_IN"
 
 const logInUser = (user) => ({type: LOG_IN, payload: { user }})
 
 
-export { getEmployers, showEmployer, getJobs, showJob, logInUser }
+export { getEmployers, showEmployer, getJobs, showJob, getUserApps, showUserApp, logInUser }

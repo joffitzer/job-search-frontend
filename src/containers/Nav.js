@@ -14,6 +14,7 @@ class Nav extends React.Component {
                 <Link to="/home"><div>Home</div></Link>
                 <Link to="/employers"><div>All Employers</div></Link>
                 <Link to="/jobs"><div>All Jobs</div></Link>
+                <Link to="/myapps"><div>My Applications</div></Link>
                 <Link to="/profile"><div>My Profile</div></Link>
                 <hr></hr>
             </div>
