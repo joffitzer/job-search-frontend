@@ -21,7 +21,13 @@ class ProfileContainer extends React.Component {
 
     renderNewItemForm = () => {
         this.setState({
-            showForm: !this.state.showForm
+            showForm: true
+        })
+    }
+
+    removeForm = () => {
+        this.setState({
+            showForm: false
         })
     }
    
@@ -61,7 +67,7 @@ class ProfileContainer extends React.Component {
                     <h3>My Portfolio:</h3>
                     <button onClick={this.renderNewItemForm}>Add to my portfolio</button>
                     {this.state.showForm ? 
-                        <NewPortfolioItemForm />
+                        <NewPortfolioItemForm removeForm={this.removeForm}/>
                         :
                         portfolioItemsArray}
             </div>
