@@ -23,7 +23,9 @@ class UserAppForm extends React.Component {
             })
         }).then(this.setState({
             miniCl: ""
-        }))
+        })).then(() => 
+            this.props.routerProps.history.push('/thanks')
+        )
     }
 
     handleMiniClChange = (e) => {
@@ -33,6 +35,8 @@ class UserAppForm extends React.Component {
     }
 
     render() {
+
+        console.log('props in user app form: ', this.props)
 
         return(
             <form onSubmit={this.handleSubmitApplication}>

@@ -16,7 +16,7 @@ class JobShow extends React.Component {
 
     render() {
 
-        console.log('state of apply clicked', this.state.applyClicked)
+        console.log('job show props', this.props)
 
         return(
             <div>
@@ -28,7 +28,7 @@ class JobShow extends React.Component {
                 <h5>Summary: {this.props.jobToShow.attributes.summary}</h5>
                 <button onClick={this.clickApply}>APPLY TO THIS JOB</button>
                 {this.state.applyClicked ? 
-                <UserAppForm /> : 
+                <UserAppForm routerProps={this.props}/> : 
                 null}
             </div>
         )
