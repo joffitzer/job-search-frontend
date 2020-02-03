@@ -113,7 +113,7 @@ class ProfileContainer extends React.Component {
         let myItems
         if (this.state.allPortfolioItems.length){
             allItemsArray = this.state.allPortfolioItems
-            myItems = allItemsArray.filter(itemObj => parseInt(this.props.loggedInUser.id) === itemObj.attributes.user.id) 
+            myItems = allItemsArray.filter(itemObj => parseInt(this.props.loggedInUser.id) === parseInt(itemObj.attributes.user.id)) 
         }
 
         let portfolioItemsArray
