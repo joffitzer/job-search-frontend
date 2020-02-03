@@ -13,11 +13,11 @@ class PortfolioCard extends React.Component {
         })
     }
 
-    deleteItem = () => {
-        fetch(`http://localhost:3000/api/v1/portfolio_items/${this.props.item.id}`,  {
-            method: 'DELETE'
-        })
-    }
+    // deleteItem = () => {
+    //     fetch(`http://localhost:3000/api/v1/portfolio_items/${this.props.item.id}`,  {
+    //         method: 'DELETE'
+    //     })
+    // }
 
     render() {    
     
@@ -29,7 +29,7 @@ class PortfolioCard extends React.Component {
                 <h5>GitHub Url: {this.props.item.attributes.git_url}</h5> 
                 <button onClick={this.loadEditForm}>Edit this portfolio item</button>  
                 {this.state.editClicked ? <EditPortfolioItemForm existingItem={this.props.item}/> : null}   
-                <button onClick={this.deleteItem}>Delete this portfolio item</button>                                               
+                <button onClick={() => this.props.deleteItem(this.props.item.id)}>Delete this portfolio item</button>                                               
                 <hr></hr>
             </div>
         )

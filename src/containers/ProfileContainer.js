@@ -45,7 +45,7 @@ class ProfileContainer extends React.Component {
         return formattedItem
     }
 
-    handleSubmitNew = (e) => {
+    handleSubmit = (e) => {
         e.preventDefault();
         fetch ('http://localhost:3000/api/v1/portfolio_items', {
             method: 'POST',
@@ -67,6 +67,15 @@ class ProfileContainer extends React.Component {
         .then(formattedItem => this.setState({
             allPortfolioItems: [...this.state.allPortfolioItems, formattedItem],
             showForm: !this.state.showForm
+        }))
+    }
+
+    deleteItem = (itemId) => {
+        fetch(`http://localhost:3000/api/v1/portfolio_items/${itemId}`,  {
+            method: 'DELETE'
+        })
+        .then(this.setState({
+            allPortfolioItems: [...this.state.allPortfolioItems].filter(item => parseInt(item.id) !== parseInt(itemId))
         }))
     }
 
@@ -119,7 +128,7 @@ class ProfileContainer extends React.Component {
         let portfolioItemsArray
         if (myItems){
             portfolioItemsArray = myItems.map(portItemObj => {
-                return <PortfolioCard key={portItemObj.id} item={portItemObj}/>
+                return <PortfolioCard key={portItemObj.id} item={portItemObj} deleteItem={this.deleteItem}/>
             })
         }
 
@@ -139,7 +148,7 @@ class ProfileContainer extends React.Component {
                     {this.state.showForm ? 
                         <NewPortfolioItemForm 
                             removeForm={this.removeForm}
-                            handleSubmitNew={this.handleSubmitNew}
+                            handleSubmit={this.handleSubmit}
                             titleValue={this.state.titleValue}
                             handleTitleChange={this.handleTitleChange}
                             blurbValue={this.state.blurbValue}

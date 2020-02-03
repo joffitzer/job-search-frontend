@@ -52,7 +52,7 @@ class NewPortfolioItemForm extends React.Component {
     render() {
 
         return(
-            <form onSubmit={this.props.handleSubmitNew}>
+            <form onSubmit={this.props.handleSubmit}>
                 <label>
                 Title:
                 <input type="text" value={this.props.titleValue} onChange={this.props.handleTitleChange} />
