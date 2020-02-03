@@ -10,7 +10,10 @@ class ProfileContainer extends React.Component {
         showForm: false,
         titleValue: "",
         blurbValue: "",
-        urlValue: ""
+        urlValue: "",
+        editTitleValue: "",
+        editBlurbValue: "",
+        editUrlValue: ""
     }
 
     componentDidMount() {
@@ -70,6 +73,28 @@ class ProfileContainer extends React.Component {
         }))
     }
 
+    handleEdit = (e, itemId) => {
+        e.preventDefault();
+        console.log(itemId)
+        fetch (`http://localhost:3000/api/v1/portfolio_items/${itemId}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json', 
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                title: this.state.editTitleValue,
+                blurb: this.state.editBlurbValue,
+                git_url: this.state.editUrlValue,
+                user_id: this.props.loggedInUser.id
+            })
+        }).then(this.setState({
+            editTitleValue: "",
+            editBlurbValue: "",
+            editUrlValue: ""
+        }))
+    }
+
     deleteItem = (itemId) => {
         fetch(`http://localhost:3000/api/v1/portfolio_items/${itemId}`,  {
             method: 'DELETE'
@@ -77,6 +102,14 @@ class ProfileContainer extends React.Component {
         .then(this.setState({
             allPortfolioItems: [...this.state.allPortfolioItems].filter(item => parseInt(item.id) !== parseInt(itemId))
         }))
+    }
+
+    renderItemInEditForm = (item) => {
+        this.setState({
+            editTitleValue: item.attributes.title,
+            editBlurbValue: item.attributes.blurb,
+            editUrlValue: item.attributes.git_url
+        })
     }
 
     handleTitleChange = (e) => {
@@ -97,6 +130,24 @@ class ProfileContainer extends React.Component {
         })
     }
 
+    editTitleChange = (e) => {
+        this.setState({
+            editTitleValue: e.target.value
+        })
+    }
+
+    editBlurbChange = (e) => {
+        this.setState({
+            editBlurbValue: e.target.value
+        })
+    }
+
+    editUrlChange = (e) => {
+        this.setState({
+            editUrlValue: e.target.value
+        })
+    }
+
     renderNewItemForm = () => {
         this.setState({
             showForm: true
@@ -111,7 +162,7 @@ class ProfileContainer extends React.Component {
    
     render() {
 
-        console.log('state of the portfolio container: ', this.state)
+        console.log(this.state)
 
         let user 
         if (this.props.loggedInUser){
@@ -128,7 +179,18 @@ class ProfileContainer extends React.Component {
         let portfolioItemsArray
         if (myItems){
             portfolioItemsArray = myItems.map(portItemObj => {
-                return <PortfolioCard key={portItemObj.id} item={portItemObj} deleteItem={this.deleteItem}/>
+                return <PortfolioCard 
+                            key={portItemObj.id} 
+                            item={portItemObj} 
+                            deleteItem={this.deleteItem}
+                            handleEdit={this.handleEdit}
+                            renderItemInEditForm={this.renderItemInEditForm}
+                            editTitleValue={this.state.editTitleValue}
+                            editBlurbValue={this.state.editBlurbValue}
+                            editUrlValue={this.state.editUrlValue}
+                            editTitleChange={this.editTitleChange}
+                            editBlurbChange={this.editBlurbChange}
+                            editUrlChange={this.editUrlChange}/>
             })
         }
 
@@ -170,12 +232,5 @@ const mapStateToProps = (state) => {
       loggedInUser
     }
   }
-  
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//       getJobs: (jobs) => dispatch(getJobs(jobs)),
-//       showJob: (job) => dispatch(showJob(job))
-//     }
-//   }
 
 export default cnx(mapStateToProps, null)(ProfileContainer);

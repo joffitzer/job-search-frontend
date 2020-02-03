@@ -25,7 +25,7 @@ class JobsContainer extends React.Component {
 
         if (this.props.allJobs.data){
             jobCards = this.props.allJobs.data.map( jobObj => {
-            return <JobCard key={jobObj.id} job={jobObj} showJob={this.showJob}/>
+            return <JobCard key={jobObj.id} job={jobObj} />
         })} 
 
         return (
