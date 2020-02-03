@@ -5,8 +5,6 @@ import React from 'react'
 
 const UserAppCard = (props) => {
 
-    console.log('props on the user app card: ', props)
-
     return(
         <div>
             <h5>User App Card</h5>

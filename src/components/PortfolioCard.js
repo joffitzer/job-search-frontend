@@ -19,10 +19,7 @@ class PortfolioCard extends React.Component {
         })
     }
 
-    render() {
-    
-        console.log('portfolio card props', this.props)
-    
+    render() {    
     
         return(
             <div>

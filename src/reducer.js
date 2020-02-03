@@ -1,5 +1,5 @@
 let defaultState = {
-    loggedInUser: [],
+    loggedInUser: {},
     isLoggedIn: false,
     allEmployers: [],
     employerClicked: false,
