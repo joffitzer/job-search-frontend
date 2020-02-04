@@ -1,31 +1,53 @@
 import React from 'react'
-// import {Link} from 'react-router-dom'
-// import { connect as cnx } from 'react-redux';
-// import { showJob } from '../actionCreators'
+import {Link} from 'react-router-dom'
+import { connect as cnx } from 'react-redux';
+import { getJobs, showJob } from '../actionCreators'
 
-const UserAppCard = (props) => {
+class UserAppCard extends React.Component {
 
-    return(
-        <div>
-            <h5>User App Card</h5>
-                <h5>You submitted this application on: {props.userApp.attributes.created_at}</h5>
-                <h5>Job Title: {props.userApp.attributes.job.job.title}</h5>
-                <h5>Employer: {props.userApp.attributes.job.employer.name}</h5>
-                <h5>Your Mini Cover Letter: {props.userApp.attributes.mini_cl}</h5>
-                    {/* <Link to={`/jobs/${props.job.id}`}>
-                        <button onClick={() => props.showJob(props.job)}>View Job Show Page</button>
-                    </Link> */}
-                <hr></hr>
-        </div>
-    )
+    componentDidMount() {
+        fetch ('http://localhost:3000/api/v1/jobs')
+            .then(res => res.json())
+            .then(jobs => {
+                this.props.getJobs(jobs)
+            })
+    }
+
+    render() {
+
+        let jobObj = this.props.allJobs.data.find(jobObj => parseInt(jobObj.id) === this.props.userApp.attributes.job.job.id)
+
+        return(
+            <div>
+                <h5>User App Card</h5>
+                    <h5>You submitted this application on: {this.props.userApp.attributes.created_at}</h5>
+                    <h5>Job Title: {this.props.userApp.attributes.job.job.title}</h5>
+                    <h5>Employer: {this.props.userApp.attributes.job.employer.name}</h5>
+                    <h5>Your Mini Cover Letter: {this.props.userApp.attributes.mini_cl}</h5>
+                        <Link to={`/jobs/${this.props.userApp.attributes.job.job.id}`}>
+                            <button onClick={() => this.props.showJob(jobObj)}>View Job Show Page</button>
+                        </Link>
+                    <hr></hr>
+            </div>
+        )
+    }
+    
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//       showJob: (job) => dispatch(showJob(job))
-//     }
-//   }
+const mapStateToProps = (state) => {
+    let { allJobs } = state;
+    return {
+        allJobs
+    }
+  }
 
-// export default cnx(null, mapDispatchToProps)(UserAppCard);
+const mapDispatchToProps = (dispatch) => {
+    return {
+      showJob: (job) => dispatch(showJob(job)),
+      getJobs: (jobs) => dispatch(getJobs(jobs))
+    }
+  }
 
-export default UserAppCard;
+export default cnx(mapStateToProps, mapDispatchToProps)(UserAppCard);
+
+// export default UserAppCard;

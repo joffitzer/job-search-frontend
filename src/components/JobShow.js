@@ -1,11 +1,12 @@
 import React from 'react'
 import { connect as cnx } from 'react-redux';
 import UserAppForm from '../components/UserAppForm'
+import { getUserApps } from '../actionCreators' 
 
 class JobShow extends React.Component {
 
     state = {
-        applyClicked: false,
+        applyClicked: false
     }
 
     clickApply = () => {
@@ -14,9 +15,22 @@ class JobShow extends React.Component {
         })
     }
 
+    componentDidMount() {
+        fetch ('http://localhost:3000/api/v1/user_apps')
+            .then(res => res.json())
+            .then(userApps => {
+                this.props.getUserApps(userApps)
+            })
+    }
+
     render() {
 
-        console.log('job show props', this.props)
+        let jobIdsAppliedTo = this.props.allUserApps.data.map(jobObj => parseInt(jobObj.attributes.job.job.id))
+
+        let alreadyApplied
+        if (jobIdsAppliedTo.includes(parseInt(this.props.jobToShow.id))){
+            alreadyApplied = true
+        }
 
         return(
             <div>
@@ -26,23 +40,34 @@ class JobShow extends React.Component {
                 <h5>Location: {this.props.jobToShow.attributes.location}</h5>
                 <h5>Category: {this.props.jobToShow.attributes.category}</h5>
                 <h5>Summary: {this.props.jobToShow.attributes.summary}</h5>
-                <button onClick={this.clickApply}>APPLY TO THIS JOB</button>
+
+                {alreadyApplied ? 
+                "You applied to this job already" 
+                : 
+                <button onClick={this.clickApply}>APPLY TO THIS JOB</button>}
+                
                 {this.state.applyClicked ? 
-                <UserAppForm routerProps={this.props}/> : 
+                <UserAppForm routerProps={this.props}/> 
+                : 
                 null}
+
             </div>
         )
-
     }
-
 }
 
 const mapStateToProps = (state) => {
-    let { jobToShow } = state;
+    let { jobToShow, allUserApps } = state;
   
     return {
-        jobToShow
+        jobToShow, allUserApps
     }
   }
 
-export default cnx(mapStateToProps, null)(JobShow);
+  const mapDispatchToProps = (dispatch) => {
+    return {
+        getUserApps: (userApps) => dispatch(getUserApps(userApps)),
+      }
+  }
+
+export default cnx(mapStateToProps, mapDispatchToProps)(JobShow);
