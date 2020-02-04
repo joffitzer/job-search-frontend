@@ -25,10 +25,13 @@ class JobShow extends React.Component {
 
     render() {
 
-        let jobIdsAppliedTo = this.props.allUserApps.data.map(jobObj => parseInt(jobObj.attributes.job.job.id))
+        let jobIdsAppliedTo 
+        if (this.props.allUserApps.data) {
+            jobIdsAppliedTo = this.props.allUserApps.data.map(jobObj => parseInt(jobObj.attributes.job.job.id))
+        }
 
         let alreadyApplied
-        if (jobIdsAppliedTo.includes(parseInt(this.props.jobToShow.id))){
+        if (jobIdsAppliedTo && jobIdsAppliedTo.includes(parseInt(this.props.jobToShow.id))){
             alreadyApplied = true
         }
 

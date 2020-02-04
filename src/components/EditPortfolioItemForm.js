@@ -3,31 +3,6 @@ import { connect as cnx } from 'react-redux';
 
 class EditPortfolioItemForm extends React.Component {
 
-    // state = {
-    //     titleValue: this.props.existingItem.attributes.title,
-    //     blurbValue: this.props.existingItem.attributes.blurb,
-    //     urlValue: this.props.existingItem.attributes.git_url
-    // }
-
-    // handleTitleChange = (e) => {
-    //     this.setState({
-    //         titleValue: e.target.value
-    //     })
-    // }
-
-    // handleBlurbChange = (e) => {
-    //     this.setState({
-    //         blurbValue: e.target.value
-    //     })
-    // }
-
-    // handleUrlChange = (e) => {
-    //     this.setState({
-    //         urlValue: e.target.value
-    //     })
-    // }
-
-
     render() {
 
         return(

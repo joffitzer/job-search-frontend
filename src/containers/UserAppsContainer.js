@@ -16,8 +16,6 @@ class UserAppsContainer extends React.Component {
    
     render() {
 
-        console.log()
-
         let userAppCards
 
         if (this.props.allUserApps.data){
@@ -25,12 +23,10 @@ class UserAppsContainer extends React.Component {
             return <UserAppCard key={userAppObj.id} userApp={userAppObj}/>
         })} 
 
-        
-
         return (
             <div>
                 <h1>My applications:</h1>  
-                    {userAppCards}
+                    {userAppCards ? userAppCards : "No apps yet"}
             </div>
         )
     }

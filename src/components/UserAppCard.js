@@ -15,7 +15,10 @@ class UserAppCard extends React.Component {
 
     render() {
 
-        let jobObj = this.props.allJobs.data.find(jobObj => parseInt(jobObj.id) === this.props.userApp.attributes.job.job.id)
+        let jobObj 
+        if (this.props.allJobs.data) {
+            jobObj = this.props.allJobs.data.find(jobObj => parseInt(jobObj.id) === this.props.userApp.attributes.job.job.id)
+        }
 
         return(
             <div>
@@ -31,7 +34,6 @@ class UserAppCard extends React.Component {
             </div>
         )
     }
-    
 }
 
 const mapStateToProps = (state) => {
@@ -49,5 +51,3 @@ const mapDispatchToProps = (dispatch) => {
   }
 
 export default cnx(mapStateToProps, mapDispatchToProps)(UserAppCard);
-
-// export default UserAppCard;

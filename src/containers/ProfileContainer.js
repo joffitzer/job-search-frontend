@@ -78,10 +78,13 @@ class ProfileContainer extends React.Component {
         }))
     }
 
-    loadEditForm = (itemId) => {
+    loadEditForm = (item) => {
         this.setState({
             editClicked: true,
-            idToEdit: itemId
+            idToEdit: item.id,
+            editTitleValue: item.attributes.title,
+            editBlurbValue: item.attributes.blurb,
+            editUrlValue: item.attributes.git_url
         })
     }
     
@@ -127,14 +130,6 @@ class ProfileContainer extends React.Component {
         }))
     }
 
-    renderItemInEditForm = (item) => {
-        this.setState({
-            editTitleValue: item.attributes.title,
-            editBlurbValue: item.attributes.blurb,
-            editUrlValue: item.attributes.git_url
-        })
-    }
-
     handleTitleChange = (e) => {
         this.setState({
             titleValue: e.target.value
@@ -176,16 +171,8 @@ class ProfileContainer extends React.Component {
             showForm: true
         })
     }
-
-    removeForm = () => {
-        this.setState({
-            showForm: false
-        })
-    }
    
     render() {
-
-        console.log(this.state)
 
         let user 
         if (this.props.loggedInUser){
@@ -207,7 +194,6 @@ class ProfileContainer extends React.Component {
                             item={portItemObj} 
                             deleteItem={this.deleteItem}
                             handleEdit={this.handleEdit}
-                            renderItemInEditForm={this.renderItemInEditForm}
                             editClicked={this.state.editClicked}
                             loadEditForm={this.loadEditForm}
                             idToEdit={this.state.idToEdit}
@@ -225,7 +211,6 @@ class ProfileContainer extends React.Component {
             <div>
                 <h1>Profile Container</h1>
                     <hr></hr>
-                    <button>Update Basic Information</button>
                     <h5>Name: {user.first_name} {user.last_name}</h5>
                     <h5>Email: {user.email}</h5>
                     <h5>Bootcamp: {user.bootcamp}</h5>
@@ -236,7 +221,6 @@ class ProfileContainer extends React.Component {
                     <button onClick={this.renderNewItemForm}>Add to my portfolio</button>
                     {this.state.showForm ? 
                         <NewPortfolioItemForm 
-                            removeForm={this.removeForm}
                             handleSubmit={this.handleSubmit}
                             titleValue={this.state.titleValue}
                             handleTitleChange={this.handleTitleChange}
@@ -252,9 +236,7 @@ class ProfileContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-
     let { loggedInUser } = state;
-  
     return {
       loggedInUser
     }

@@ -4,16 +4,6 @@ import EditPortfolioItemForm from './EditPortfolioItemForm'
 
 class PortfolioCard extends React.Component {
 
-    // state = {
-    //     editClicked: false
-    // }
-
-    // loadEditForm = () => {
-    //     this.setState({
-    //         editClicked: true
-    //     })
-    // }
-
     render() {    
     
         return(
@@ -31,6 +21,7 @@ class PortfolioCard extends React.Component {
                     editBlurbChange={this.props.editBlurbChange}
                     editUrlChange={this.props.editUrlChange}
                     /> 
+                    
                     : 
 
                 <PortfolioItemInfo 
@@ -41,12 +32,10 @@ class PortfolioCard extends React.Component {
                     />    
                 }   
 
-                {/* <button onClick={() => this.props.deleteItem(this.props.item.id)}>Delete this portfolio item</button> */}
-
                 <hr></hr>
             </div>
         )
     }
 }
 
-export default PortfolioCard
+export default PortfolioCard;

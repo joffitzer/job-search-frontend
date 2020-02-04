@@ -8,7 +8,6 @@ class UserAppForm extends React.Component {
     }
 
     handleSubmitApplication = (e) => {
-        console.log('submitting application')
         e.preventDefault();
         fetch ('http://localhost:3000/api/v1/user_apps', {
             method: 'POST',
@@ -36,12 +35,10 @@ class UserAppForm extends React.Component {
 
     render() {
 
-        console.log('props in user app form: ', this.props)
-
         return(
             <form onSubmit={this.handleSubmitApplication}>
                 <label>
-                Mini Cover Letter, max xyz characters:
+                Mini Cover Letter, max ### characters:
                 <input type="text" value={this.state.miniCl} onChange={this.handleMiniClChange} />
                 </label>
     

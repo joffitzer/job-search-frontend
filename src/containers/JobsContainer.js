@@ -14,10 +14,6 @@ class JobsContainer extends React.Component {
                 this.props.getJobs(jobs)
             })
     }
-
-    showJob = (job) => {
-        this.props.showJob(job)
-    }
    
     render() {
 

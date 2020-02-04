@@ -36,12 +36,12 @@ const mapStateToProps = (state) => {
     return {
       allEmployers
     }
-  }
+}
   
 const mapDispatchToProps = (dispatch) => {
     return {
-      getEmployers: (employers) => dispatch(getEmployers(employers)),
+      getEmployers: (employers) => dispatch(getEmployers(employers))
     }
-  }
+}
 
 export default cnx(mapStateToProps, mapDispatchToProps)(EmployersContainer);

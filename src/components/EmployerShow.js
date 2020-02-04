@@ -34,9 +34,12 @@ class EmployerShowPage extends React.Component {
                 <h5>Name: {this.props.employerToShow.attributes.name}</h5>
                 <h5>Industry: {this.props.employerToShow.attributes.industry}</h5>
                 <h5>Description: {this.props.employerToShow.attributes.description}</h5>
+
                 <hr></hr>
+
                 <h5>All Jobs from this employer:</h5>
                 {employerJobs}
+                
             </div>
         )
 
