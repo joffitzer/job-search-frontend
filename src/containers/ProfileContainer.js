@@ -11,6 +11,7 @@ class ProfileContainer extends React.Component {
         titleValue: "",
         blurbValue: "",
         urlValue: "",
+        editClicked: false,
         editTitleValue: "",
         editBlurbValue: "",
         editUrlValue: ""
@@ -72,10 +73,9 @@ class ProfileContainer extends React.Component {
             showForm: !this.state.showForm
         }))
     }
-
+    
     handleEdit = (e, itemId) => {
         e.preventDefault();
-        console.log(itemId)
         fetch (`http://localhost:3000/api/v1/portfolio_items/${itemId}`, {
             method: 'PATCH',
             headers: {
@@ -88,11 +88,23 @@ class ProfileContainer extends React.Component {
                 git_url: this.state.editUrlValue,
                 user_id: this.props.loggedInUser.id
             })
-        }).then(this.setState({
-            editTitleValue: "",
-            editBlurbValue: "",
-            editUrlValue: ""
-        }))
+        }) 
+        .then(res => res.json())
+        .then(newItem => {
+            return this.formatItem(newItem)
+        })
+        .then(formattedItem => {
+            let allItemsCopy = [...this.state.allPortfolioItems]
+            let itemToEdit = allItemsCopy.find(item => parseInt(item.id) === parseInt(formattedItem.id))
+            let index = allItemsCopy.indexOf(itemToEdit)
+            if (index !== -1) {
+                allItemsCopy[index] = formattedItem;
+            }
+            this.setState({
+                allPortfolioItems: allItemsCopy,
+                editClicked: !this.state.editClicked
+            })
+        })
     }
 
     deleteItem = (itemId) => {

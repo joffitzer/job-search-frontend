@@ -24,15 +24,21 @@ class PortfolioCard extends React.Component {
                     <div onClick={() => this.props.renderItemInEditForm(this.props.item)}>
                         <button onClick={this.loadEditForm}>Edit this portfolio item</button>  
                     </div>
-                {this.state.editClicked ? <EditPortfolioItemForm 
-                                            existingItem={this.props.item}
-                                            handleEdit={this.props.handleEdit}
-                                            editTitleValue={this.props.editTitleValue}
-                                            editBlurbValue={this.props.editBlurbValue}
-                                            editUrlValue={this.props.editUrlValue}
-                                            editTitleChange={this.props.editTitleChange}
-                                            editBlurbChange={this.props.editBlurbChange}
-                                            editUrlChange={this.props.editUrlChange}/> : null}   
+
+                {this.state.editClicked ? 
+                
+                <EditPortfolioItemForm 
+                    existingItem={this.props.item}
+                    handleEdit={this.props.handleEdit}
+                    editTitleValue={this.props.editTitleValue}
+                    editBlurbValue={this.props.editBlurbValue}
+                    editUrlValue={this.props.editUrlValue}
+                    editTitleChange={this.props.editTitleChange}
+                    editBlurbChange={this.props.editBlurbChange}
+                    editUrlChange={this.props.editUrlChange}
+                    /> 
+                    : 
+                    null}   
                 <button onClick={() => this.props.deleteItem(this.props.item.id)}>Delete this portfolio item</button>                                               
                 <hr></hr>
             </div>
