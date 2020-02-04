@@ -45,10 +45,6 @@ let reducer = (prevState=defaultState, action) => {
             userAppClicked: !prevState.userAppClicked,
             userAppToShow: action.payload.userApp
       }
-        case 'EDIT_CLICKED': 
-          return {...prevState, 
-            editClicked: !prevState.editClicked
-  }
         case 'LOG_IN': 
           return {...prevState,
             loggedInUser: action.payload.user,

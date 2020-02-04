@@ -71,7 +71,10 @@ class ProfileContainer extends React.Component {
         })
         .then(formattedItem => this.setState({
             allPortfolioItems: [...this.state.allPortfolioItems, formattedItem],
-            showForm: !this.state.showForm
+            showForm: !this.state.showForm,
+            titleValue: "",
+            blurbValue: "",
+            urlValue: ""
         }))
     }
 

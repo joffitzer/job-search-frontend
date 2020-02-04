@@ -19,14 +19,9 @@ const getUserApps = (userApps) =>({type: GET_USER_APPS, payload: { userApps }})
 const showUserApp = (userApp) => ({type: SHOW_USER_APP, payload: { userApp }})
 
 
-const EDIT_CLICKED = "EDIT_CLICKED"
-
-const editClicked = (item) => ({type: EDIT_CLICKED, payload: { item }})
-
-
 const LOG_IN = "LOG_IN"
 
 const logInUser = (user) => ({type: LOG_IN, payload: { user }})
 
 
-export { getEmployers, showEmployer, getJobs, showJob, getUserApps, showUserApp, editClicked, logInUser }
+export { getEmployers, showEmployer, getJobs, showJob, getUserApps, showUserApp, logInUser }
