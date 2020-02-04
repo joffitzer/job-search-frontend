@@ -9,7 +9,8 @@ let defaultState = {
     jobToShow: [],
     allUserApps: [],
     userAppClicked: false,
-    userAppToShow: []
+    userAppToShow: [],
+    editClicked: false
 }
 
 let reducer = (prevState=defaultState, action) => {
@@ -34,7 +35,7 @@ let reducer = (prevState=defaultState, action) => {
             jobClicked: !prevState.jobClicked,
             jobToShow: action.payload.job
       }
-      case 'GET_USER_APPS': 
+        case 'GET_USER_APPS': 
           return {...prevState, 
             allUserApps: action.payload.userApps,
             userAppClicked: false
@@ -44,6 +45,10 @@ let reducer = (prevState=defaultState, action) => {
             userAppClicked: !prevState.userAppClicked,
             userAppToShow: action.payload.userApp
       }
+        case 'EDIT_CLICKED': 
+          return {...prevState, 
+            editClicked: !prevState.editClicked
+  }
         case 'LOG_IN': 
           return {...prevState,
             loggedInUser: action.payload.user,

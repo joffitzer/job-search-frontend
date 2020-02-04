@@ -1,32 +1,25 @@
 import React from 'react'
+import PortfolioItemInfo from './PortfolioItemInfo'
 import EditPortfolioItemForm from './EditPortfolioItemForm'
 
 class PortfolioCard extends React.Component {
 
-    state = {
-        editClicked: false
-    }
+    // state = {
+    //     editClicked: false
+    // }
 
-    loadEditForm = () => {
-        this.setState({
-            editClicked: true
-        })
-    }
+    // loadEditForm = () => {
+    //     this.setState({
+    //         editClicked: true
+    //     })
+    // }
 
     render() {    
     
         return(
             <div>
-                <h5>Portfolio Card</h5>
-                <h5>Title: {this.props.item.attributes.title}</h5> 
-                <h5>Blurb: {this.props.item.attributes.blurb}</h5>              
-                <h5>GitHub Url: {this.props.item.attributes.git_url}</h5> 
-                
-                    <div onClick={() => this.props.renderItemInEditForm(this.props.item)}>
-                        <button onClick={this.loadEditForm}>Edit this portfolio item</button>  
-                    </div>
 
-                {this.state.editClicked ? 
+                {this.props.editClicked && (this.props.idToEdit === this.props.item.id) ? 
                 
                 <EditPortfolioItemForm 
                     existingItem={this.props.item}
@@ -39,9 +32,17 @@ class PortfolioCard extends React.Component {
                     editUrlChange={this.props.editUrlChange}
                     /> 
                     : 
-                    null}   
 
-                <button onClick={() => this.props.deleteItem(this.props.item.id)}>Delete this portfolio item</button>                                               
+                <PortfolioItemInfo 
+                    item={this.props.item}
+                    renderItemInEditForm={this.props.renderItemInEditForm}
+                    loadEditForm={this.props.loadEditForm}
+                    deleteItem={this.props.deleteItem}
+                    />    
+                }   
+
+                {/* <button onClick={() => this.props.deleteItem(this.props.item.id)}>Delete this portfolio item</button> */}
+
                 <hr></hr>
             </div>
         )

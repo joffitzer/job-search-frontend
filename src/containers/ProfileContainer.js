@@ -12,6 +12,7 @@ class ProfileContainer extends React.Component {
         blurbValue: "",
         urlValue: "",
         editClicked: false,
+        idToEdit: "",
         editTitleValue: "",
         editBlurbValue: "",
         editUrlValue: ""
@@ -72,6 +73,13 @@ class ProfileContainer extends React.Component {
             allPortfolioItems: [...this.state.allPortfolioItems, formattedItem],
             showForm: !this.state.showForm
         }))
+    }
+
+    loadEditForm = (itemId) => {
+        this.setState({
+            editClicked: true,
+            idToEdit: itemId
+        })
     }
     
     handleEdit = (e, itemId) => {
@@ -197,12 +205,16 @@ class ProfileContainer extends React.Component {
                             deleteItem={this.deleteItem}
                             handleEdit={this.handleEdit}
                             renderItemInEditForm={this.renderItemInEditForm}
+                            editClicked={this.state.editClicked}
+                            loadEditForm={this.loadEditForm}
+                            idToEdit={this.state.idToEdit}
                             editTitleValue={this.state.editTitleValue}
                             editBlurbValue={this.state.editBlurbValue}
                             editUrlValue={this.state.editUrlValue}
                             editTitleChange={this.editTitleChange}
                             editBlurbChange={this.editBlurbChange}
-                            editUrlChange={this.editUrlChange}/>
+                            editUrlChange={this.editUrlChange}
+                        />
             })
         }
 
