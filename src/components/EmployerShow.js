@@ -16,12 +16,13 @@ class EmployerShowPage extends React.Component {
 
     render() {
 
+
         let allJobsArray
         let currentEmployerJobsArray
         let employerJobs
 
-        if(this.props.allJobs.data){
-            allJobsArray = this.props.allJobs.data
+        if(this.props.allJobs){
+            allJobsArray = this.props.allJobs
             currentEmployerJobsArray = allJobsArray.filter(jobObj => parseInt(this.props.employerToShow.id) === jobObj.attributes.employer.id)
             employerJobs = currentEmployerJobsArray.map(empJob => {
                 return <JobCard key={empJob.id} job={empJob} />

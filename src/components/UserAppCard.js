@@ -16,8 +16,8 @@ class UserAppCard extends React.Component {
     render() {
 
         let jobObj 
-        if (this.props.allJobs.data) {
-            jobObj = this.props.allJobs.data.find(jobObj => parseInt(jobObj.id) === this.props.userApp.attributes.job.job.id)
+        if (this.props.allJobs) {
+            jobObj = this.props.allJobs.find(jobObj => parseInt(jobObj.id) === this.props.userApp.attributes.job.job.id)
         }
 
         let date = new Date(this.props.userApp.attributes.created_at);

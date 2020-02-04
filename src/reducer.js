@@ -27,7 +27,7 @@ let reducer = (prevState=defaultState, action) => {
         }
         case 'GET_JOBS': 
           return {...prevState, 
-            allJobs: action.payload.jobs,
+            allJobs: action.payload.jobs.data,
             jobClicked: false
         }
         case 'SHOW_JOB': 
