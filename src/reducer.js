@@ -10,7 +10,8 @@ let defaultState = {
     allUserApps: [],
     userAppClicked: false,
     userAppToShow: [],
-    editClicked: false
+    editClicked: false,
+    filterValue: ""
 }
 
 let reducer = (prevState=defaultState, action) => {
@@ -45,6 +46,10 @@ let reducer = (prevState=defaultState, action) => {
             userAppClicked: !prevState.userAppClicked,
             userAppToShow: action.payload.userApp
       }
+        case 'SET_FILTER_VALUE': 
+          return {...prevState, 
+            filterValue: action.payload.filterValue
+  }
         case 'LOG_IN': 
           return {...prevState,
             loggedInUser: action.payload.user,

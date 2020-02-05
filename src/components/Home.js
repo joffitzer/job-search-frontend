@@ -1,10 +1,13 @@
 import React from 'react'
+import { connect as cnx } from 'react-redux';
+import { setFilterValue } from '../actionCreators'
+import { Link } from 'react-router-dom';
 
 class Home extends React.Component {
 
     state = {
-        jobType: "",
-        location: ""
+        jobType: "All"
+        // location: "Any Location"
     }
 
     handleJobTypeChange = (e) => {
@@ -13,15 +16,13 @@ class Home extends React.Component {
         })
     }
 
-    handleLocationChange = (e) => {
-        this.setState({
-            location: e.target.value
-        })
-    }
+    // handleLocationChange = (e) => {
+    //     this.setState({
+    //         location: e.target.value
+    //     })
+    // }
 
     render(){
-
-        console.log(this.state)
 
         return(
             <div>
@@ -29,13 +30,13 @@ class Home extends React.Component {
                     <span> I'm looking for 
     
                                 <select value={this.state.jobType} onChange={this.handleJobTypeChange}>
-                                <option value="All Jobs">All Jobs</option>
+                                <option value="All">All</option>
                                 <option value="Software Engineering">Software Engineering</option>
                                 <option value="Data Science">Data Science</option>
                                 <option value="UX/UI Design">UX/UI Design</option>
                                 </select>
                          
-                        {"  "}in{"  "} 
+                        {"  "}jobs in{"  "} 
                         
                                 <select value={this.state.location} onChange={this.handleLocationChange}>
                                 <option value="Any Location">Any Location</option>
@@ -43,12 +44,20 @@ class Home extends React.Component {
                                 <option value="San Francisco">San Francisco</option>
                                 <option value="Chicago">Chicago</option>
                                 </select>
-                       
-                                <button>Search Jobs</button>
+
+                            <Link to={`/jobs`}>
+                                <button onClick={() => this.props.setFilterValue(this.state.jobType)}>Search Jobs</button>
+                            </Link>
                     </span>
             </div>
         )
     }
 }
+  
+const mapDispatchToProps = (dispatch) => {
+    return {
+      setFilterValue: (filterValue) => dispatch(setFilterValue(filterValue))
+    }
+}
 
-export default Home;
+export default cnx(null, mapDispatchToProps)(Home);

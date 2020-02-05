@@ -2,14 +2,10 @@ import React from 'react';
 import { connect as cnx } from 'react-redux';
 import JobCard from '../components/JobCard'
 import JobShow from '../components/JobShow'
-import { getJobs, showJob } from '../actionCreators';
+import { getJobs, showJob, setFilterValue } from '../actionCreators';
 
 
 class JobsContainer extends React.Component {
-
-  state = {
-    filterValue: ""
-  }
 
     componentDidMount() {
         fetch ('http://localhost:3000/api/v1/jobs')
@@ -20,17 +16,15 @@ class JobsContainer extends React.Component {
     }
 
     handleChange = (e) => {
-      this.setState({
-        filterValue: e.target.value
-      })
+      this.props.setFilterValue(e.target.value)
     }
    
     render() {
 
         let filteredJobs
 
-        if (this.state.filterValue.length){
-          switch (this.state.filterValue) {
+        if (this.props.filterValue.length){
+          switch (this.props.filterValue) {
             case "All Jobs":
                 filteredJobs = this.props.allJobs
               break;
@@ -51,14 +45,14 @@ class JobsContainer extends React.Component {
         let jobCards
 
         if (this.props.allJobs){
-          if (this.state.filterValue.length){
-            if(filteredJobs.length){
-              jobCards = filteredJobs.map( jobObj => {
-                return <JobCard key={jobObj.id} job={jobObj} />
-              })
-            } else {
-              jobCards = "No jobs posted in this category yet"
-            }
+          if (this.props.filterValue.length){
+              if(filteredJobs.length){
+                jobCards = filteredJobs.map( jobObj => {
+                  return <JobCard key={jobObj.id} job={jobObj} />
+                })
+              } else {
+                jobCards = "No jobs posted in this category yet"
+              }
           } else {
             jobCards = this.props.allJobs.map( jobObj => {
             return <JobCard key={jobObj.id} job={jobObj} />
@@ -72,7 +66,7 @@ class JobsContainer extends React.Component {
                   <form >
                     <label>
                         Filter jobs by category:
-                        <select value={this.state.filterValue} onChange={this.handleChange}>
+                        <select value={this.props.filterValue} onChange={this.handleChange}>
                           <option value="All Jobs">All Jobs</option>
                           <option value="Software Engineering">Software Engineering</option>
                           <option value="Data Science">Data Science</option>
@@ -92,17 +86,18 @@ class JobsContainer extends React.Component {
 
 const mapStateToProps = (state) => {
 
-    let { allJobs, jobClicked } = state;
+    let { allJobs, jobClicked, filterValue } = state;
   
     return {
-      allJobs, jobClicked
+      allJobs, jobClicked, filterValue
     }
   }
   
 const mapDispatchToProps = (dispatch) => {
     return {
       getJobs: (jobs) => dispatch(getJobs(jobs)),
-      showJob: (job) => dispatch(showJob(job))
+      showJob: (job) => dispatch(showJob(job)),
+      setFilterValue: (filterValue) => dispatch(setFilterValue(filterValue))
     }
   }
 

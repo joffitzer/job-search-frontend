@@ -19,9 +19,14 @@ const getUserApps = (userApps) =>({type: GET_USER_APPS, payload: { userApps }})
 const showUserApp = (userApp) => ({type: SHOW_USER_APP, payload: { userApp }})
 
 
+const SET_FILTER_VALUE = "SET_FILTER_VALUE"
+
+const setFilterValue = (filterValue) => ({type: SET_FILTER_VALUE, payload: { filterValue }})
+
+
 const LOG_IN = "LOG_IN"
 
 const logInUser = (user) => ({type: LOG_IN, payload: { user }})
 
 
-export { getEmployers, showEmployer, getJobs, showJob, getUserApps, showUserApp, logInUser }
+export { getEmployers, showEmployer, getJobs, showJob, getUserApps, showUserApp, setFilterValue, logInUser }
