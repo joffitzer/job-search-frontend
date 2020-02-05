@@ -36,14 +36,15 @@ class Home extends React.Component {
                                 <option value="UX/UI Design">UX/UI Design</option>
                                 </select>
                          
-                        {"  "}jobs in{"  "} 
+                        {"  "}jobs 
+                        {/* in{"  "} 
                         
                                 <select value={this.state.location} onChange={this.handleLocationChange}>
                                 <option value="Any Location">Any Location</option>
                                 <option value="New York City">New York City</option>
                                 <option value="San Francisco">San Francisco</option>
                                 <option value="Chicago">Chicago</option>
-                                </select>
+                                </select> */}
 
                             <Link to={`/jobs`}>
                                 <button onClick={() => this.props.setFilterValue(this.state.jobType)}>Search Jobs</button>

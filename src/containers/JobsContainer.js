@@ -13,6 +13,7 @@ class JobsContainer extends React.Component {
             .then(jobs => {
                 this.props.getJobs(jobs)
             })
+            // .then(this.props.setFilterValue("All Jobs"))
     }
 
     handleChange = (e) => {
@@ -20,6 +21,8 @@ class JobsContainer extends React.Component {
     }
    
     render() {
+
+      console.log(this.props)
 
         let filteredJobs
 
@@ -85,9 +88,7 @@ class JobsContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-
     let { allJobs, jobClicked, filterValue } = state;
-  
     return {
       allJobs, jobClicked, filterValue
     }
