@@ -36,14 +36,14 @@ class ProfileContainer extends React.Component {
                 blurb: newItem.blurb,
                 git_url: newItem.git_url,
                 user: {
-                    id: this.props.loggedInUser.id,
-                    first_name: this.props.loggedInUser.attributes.first_name,
-                    last_name: this.props.loggedInUser.attributes.last_name,
-                    email: this.props.loggedInUser.attributes.email,
-                    bootcamp: this.props.loggedInUser.attributes.bootcamp,
-                    category: this.props.loggedInUser.attributes.category,
-                    grad_month: this.props.loggedInUser.attributes.grad_month,
-                    grad_year: this.props.loggedInUser.attributes.grad_year
+                    id: this.props.loggedInUser.user.id,
+                    first_name: this.props.loggedInUser.user.first_name,
+                    last_name: this.props.loggedInUser.user.last_name,
+                    email: this.props.loggedInUser.user.email,
+                    bootcamp: this.props.loggedInUser.user.bootcamp,
+                    category: this.props.loggedInUser.user.category,
+                    grad_month: this.props.loggedInUser.user.grad_month,
+                    grad_year: this.props.loggedInUser.user.grad_year
                 }
             }
         }
@@ -62,7 +62,7 @@ class ProfileContainer extends React.Component {
                 title: this.state.titleValue,
                 blurb: this.state.blurbValue,
                 git_url: this.state.urlValue,
-                user_id: this.props.loggedInUser.id
+                user_id: this.props.loggedInUser.user.id
             })
         })
         .then(res => res.json())
@@ -176,14 +176,18 @@ class ProfileContainer extends React.Component {
 
         let user 
         if (this.props.loggedInUser){
-            user = this.props.loggedInUser.attributes
-        }
+            user = this.props.loggedInUser.user
+        } 
 
         let allItemsArray
         let myItems
-        if (this.state.allPortfolioItems.length){
+        if (this.props.loggedInUser && this.state.allPortfolioItems.length){
             allItemsArray = this.state.allPortfolioItems
-            myItems = allItemsArray.filter(itemObj => parseInt(this.props.loggedInUser.id) === parseInt(itemObj.attributes.user.id)) 
+            myItems = allItemsArray.filter(itemObj => {
+                if (itemObj.user) {
+                    return parseInt(this.props.loggedInUser.user.id) === parseInt(itemObj.attributes.user.id)
+                }
+            })
         }
 
         let portfolioItemsArray
