@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import Thanks from '../components/Thanks'
 import Signup from '../components/Signup'
 import Login from '../components/Login'
+import Logout from '../components/Logout'
 import Home from '../components/Home'
 import EmployersContainer from '../containers/EmployersContainer'
 import EmployerShow from '../components/EmployerShow'
@@ -17,6 +18,7 @@ const MainContainer = () => {
             <h1>Main Container</h1>
             <Route exact path="/signup" render={(routerProps) => <Signup {...routerProps}/>} />
             <Route exact path="/login" render={(routerProps) => <Login {...routerProps}/>} />
+            <Route exact path="/logout" component={Logout} />
             <Route exact path="/thanks" component={Thanks} />
             <Route exact path="/profile" component={ProfileContainer} />
             <Route exact path="/home" component={Home} />
