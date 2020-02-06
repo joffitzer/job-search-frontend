@@ -22,8 +22,6 @@ class JobsContainer extends React.Component {
    
     render() {
 
-      console.log(this.props)
-
         let filteredJobs
 
         if (this.props.filterValue.length){

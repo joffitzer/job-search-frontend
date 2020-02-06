@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import Thanks from '../components/Thanks'
+import Signup from '../components/Signup'
 import Login from '../components/Login'
 import Home from '../components/Home'
 import EmployersContainer from '../containers/EmployersContainer'
@@ -14,6 +15,7 @@ const MainContainer = () => {
     return (
         <div>
             <h1>Main Container</h1>
+            <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/thanks" component={Thanks} />
             <Route exact path="/profile" component={ProfileContainer} />

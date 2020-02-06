@@ -12,6 +12,7 @@ class Login extends React.Component {
         fetch ('http://localhost:3000/api/v1/users')
             .then(res => res.json())
             .then(userObj => {
+                console.log(userObj)
                 this.setState({
                     user: userObj
                 })
@@ -19,6 +20,8 @@ class Login extends React.Component {
     }
     
     render(){
+
+        console.log('state of user: ', this.state.user)
 
         let user
 

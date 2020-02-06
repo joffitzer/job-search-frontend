@@ -7,9 +7,11 @@ class Nav extends React.Component {
 
     render() {
 
+
         return (
             <div>
-                <h5>Logged In User: {this.props.isLoggedIn ? this.props.loggedInUser.attributes.first_name : "Nope"}</h5>
+                {/* <h5>Logged In User: {this.props.isLoggedIn ? this.props.loggedInUser.attributes.first_name : "Nope"}</h5> */}
+                <Link to="/signup"><div>Sign Up</div></Link>
                 <Link to="/login"><div>Log In</div></Link>
                 <Link to="/home"><div>Home</div></Link>
                 <Link to="/employers"><div>All Employers</div></Link>
