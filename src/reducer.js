@@ -55,6 +55,11 @@ let reducer = (prevState=defaultState, action) => {
             loggedInUser: action.payload.user,
             isLoggedIn: true
       }
+      case 'LOG_OUT': 
+          return {...prevState,
+            loggedInUser: {},
+            isLoggedIn: false
+      }
         default: 
           return {...prevState}
     }

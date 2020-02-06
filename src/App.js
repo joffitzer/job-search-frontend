@@ -25,6 +25,8 @@ class App extends React.Component {
   }
 
   render(){
+
+    console.log('local storage: ', localStorage)
     
     return (
       <div>

@@ -15,8 +15,8 @@ const MainContainer = () => {
     return (
         <div>
             <h1>Main Container</h1>
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" render={(routerProps) => <Signup {...routerProps}/>} />
+            <Route exact path="/login" render={(routerProps) => <Login {...routerProps}/>} />
             <Route exact path="/thanks" component={Thanks} />
             <Route exact path="/profile" component={ProfileContainer} />
             <Route exact path="/home" component={Home} />

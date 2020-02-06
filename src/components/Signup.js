@@ -34,6 +34,7 @@ class Signup extends React.Component {
             localStorage.setItem("token", response.token)
             this.props.logInUser(response)
           })
+          .then( () => this.props.history.push("/home"))
       }
 
     submitHandler = (e) => {
@@ -57,7 +58,7 @@ class Signup extends React.Component {
 
         return (
             <div>
-                <h3>signup form to create a user</h3>
+                <h3>signup form to create a new user</h3>
                 <form onSubmit={this.submitHandler}>
                     <input type="text" name="email" value={this.state.email} placeholder="enter email" onChange={this.changeHandler} />
                     <input type="text" name="password" value={this.state.password} placeholder="enter password" onChange={this.changeHandler} />

@@ -28,5 +28,9 @@ const LOG_IN = "LOG_IN"
 
 const logInUser = (user) => ({type: LOG_IN, payload: { user }})
 
+const LOG_OUT = "LOG_OUT"
 
-export { getEmployers, showEmployer, getJobs, showJob, getUserApps, showUserApp, setFilterValue, logInUser }
+const logOutUser = () => ({type: LOG_OUT})
+
+
+export { getEmployers, showEmployer, getJobs, showJob, getUserApps, showUserApp, setFilterValue, logInUser, logOutUser}
