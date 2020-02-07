@@ -18,6 +18,13 @@ class PostJob extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+            console.log('logged in user before post of job: ', this.props.loggedInUser)
+        let user 
+        if (this.props.loggedInUser.employer) {
+            user = this.props.loggedInUser.employer
+        } else {
+            user = this.props.loggedInUser
+        }
         fetch ('http://localhost:3000/api/v1/jobs', {
             method: 'POST',
             headers: {
@@ -33,13 +40,14 @@ class PostJob extends React.Component {
                 sal_range_low: this.state.sal_range_low,
                 sal_range_high: this.state.sal_range_high,
                 active: true,
-                employer_id: this.props.loggedInUser.id
+                employer_id: user.id
             })
         })
-        // .then(res => res.json())
-        // .then(newItem => {
-        //     return this.formatItem(newItem)
-        // })
+        .then(res => res.json())
+        .then(newJob => {
+            console.log(newJob)
+            // return this.formatItem(newItem)
+        })
         // .then(formattedItem => this.setState({
         //     allPortfolioItems: [...this.state.allPortfolioItems, formattedItem],
         //     showForm: !this.state.showForm,
