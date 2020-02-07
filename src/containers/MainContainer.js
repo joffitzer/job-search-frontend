@@ -6,6 +6,7 @@ import EmployerLogin from '../components/EmployerLogin'
 import EmployerHome from '../components/EmployerHome'
 import EmployerJobsContainer from '../containers/EmployerJobsContainer'
 import PostJob from '../components/PostJob'
+import JobCandidates from '../components/JobCandidates'
 import Signup from '../components/Signup'
 import Login from '../components/Login'
 import Logout from '../components/Logout'
@@ -26,6 +27,7 @@ const MainContainer = () => {
             <Route exact path="/employerhome" render={(routerProps) => <EmployerHome {...routerProps}/>} />
             <Route exact path="/postjob" render={(routerProps) => <PostJob {...routerProps}/>} />
             <Route exact path="/myjobs" render={(routerProps) => <EmployerJobsContainer {...routerProps}/>} />
+            <Route exact path="/candidates/:id" render={(routerProps) => <JobCandidates {...routerProps}/>} />
             <Route exact path="/signup" render={(routerProps) => <Signup {...routerProps}/>} />
             <Route exact path="/login" render={(routerProps) => <Login {...routerProps}/>} />
             <Route exact path="/logout" component={Logout} />

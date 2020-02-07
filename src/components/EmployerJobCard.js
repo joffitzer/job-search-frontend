@@ -14,9 +14,12 @@ const EmployerJobCard = (props) => {
                 <h5>Category: {props.job.attributes.category}</h5>
                 <h5>Summary: {props.job.attributes.summary}</h5>
                 <h5>Salary Range: ${props.job.attributes.sal_range_low} - ${props.job.attributes.sal_range_high}</h5>
-                    {/* <Link to={`/jobs/${props.job.id}`}>
-                        <button onClick={() => props.showJob(props.job)}>View Job Show Page</button>
-                    </Link> */}
+
+
+                    <Link to={`/candidates/${props.job.id}`}>
+                        <button onClick={() => props.showJob(props.job)}>View Candidates for this job</button>
+                    </Link>
+
                     <button onClick={() => props.deleteJob(props.job)}>Delete this job</button>
 
                 <hr></hr>
