@@ -19,6 +19,7 @@ class App extends React.Component {
       })
         .then(resp => resp.json())
         .then(user => {
+          console.log('user: ', user)
           this.props.logInUser(user)
         })
     }

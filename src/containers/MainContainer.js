@@ -1,6 +1,10 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import Thanks from '../components/Thanks'
+import EmployerSignup from '../components/EmployerSignup'
+import EmployerLogin from '../components/EmployerLogin'
+import EmployerHome from '../components/EmployerHome'
+import PostJob from '../components/PostJob'
 import Signup from '../components/Signup'
 import Login from '../components/Login'
 import Logout from '../components/Logout'
@@ -16,6 +20,10 @@ const MainContainer = () => {
     return (
         <div>
             <h1>Main Container</h1>
+            <Route exact path="/employersignup" render={(routerProps) => <EmployerSignup {...routerProps}/>} />
+            <Route exact path="/employerlogin" render={(routerProps) => <EmployerLogin {...routerProps}/>} />
+            <Route exact path="/employerhome" render={(routerProps) => <EmployerHome {...routerProps}/>} />
+            <Route exact path="/postjob" render={(routerProps) => <PostJob {...routerProps}/>} />
             <Route exact path="/signup" render={(routerProps) => <Signup {...routerProps}/>} />
             <Route exact path="/login" render={(routerProps) => <Login {...routerProps}/>} />
             <Route exact path="/logout" component={Logout} />
