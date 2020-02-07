@@ -21,6 +21,7 @@ class Nav extends React.Component {
                 <Link to="/employerlogin"><div>Employer Log In</div></Link>
                 <Link to="/employerhome"><div>Employer Home</div></Link>
                 <Link to="/postjob"><div>Post a job</div></Link>
+                <Link to="/myjobs"><div>My Jobs</div></Link>
                 <hr></hr>
                 <div>User Nav</div>
                 <Link to="/signup"><div>Sign Up</div></Link>

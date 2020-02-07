@@ -36,6 +36,10 @@ let reducer = (prevState=defaultState, action) => {
             jobClicked: !prevState.jobClicked,
             jobToShow: action.payload.job
       }
+      case 'DELETE_JOB': 
+          return {...prevState, 
+            allJobs: [...prevState.allJobs].filter(job => parseInt(job.id) !== parseInt(action.payload.job.id))
+  }
         case 'GET_USER_APPS': 
           return {...prevState, 
             allUserApps: action.payload.userApps,

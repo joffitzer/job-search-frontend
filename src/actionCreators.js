@@ -7,9 +7,11 @@ const showEmployer = (employer) => ({type: SHOW_EMPLOYER, payload: { employer }}
 
 const GET_JOBS = "GET_JOBS"
 const SHOW_JOB = "SHOW_JOB"
+const DELETE_JOB = "DELETE_JOB"
 
 const getJobs = (jobs) =>({type: GET_JOBS, payload: { jobs }})
 const showJob = (job) => ({type: SHOW_JOB, payload: { job }})
+const deleteJob = (job) => ({type: DELETE_JOB, payload: { job }})
 
 
 const GET_USER_APPS = "GET_USER_APPS"
@@ -33,4 +35,4 @@ const LOG_OUT = "LOG_OUT"
 const logOutUser = () => ({type: LOG_OUT})
 
 
-export { getEmployers, showEmployer, getJobs, showJob, getUserApps, showUserApp, setFilterValue, logInUser, logOutUser}
+export { getEmployers, showEmployer, getJobs, showJob, getUserApps, showUserApp, setFilterValue, deleteJob, logInUser, logOutUser}

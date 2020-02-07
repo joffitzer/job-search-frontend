@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect as cnx } from 'react-redux';
-import { logInUser } from '../actionCreators'
+// import { logInUser } from '../actionCreators'
 // import { Link } from 'react-router-dom'
 
 class PostJob extends React.Component {
