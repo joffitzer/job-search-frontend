@@ -52,6 +52,12 @@ class ProfileContainer extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        let user
+        if (this.props.loggedInUser.user) {
+            user = this.props.loggedInUser.user
+        } else {
+            user = this.props.loggedInUser.id
+        }
         fetch ('http://localhost:3000/api/v1/portfolio_items', {
             method: 'POST',
             headers: {
@@ -62,7 +68,7 @@ class ProfileContainer extends React.Component {
                 title: this.state.titleValue,
                 blurb: this.state.blurbValue,
                 git_url: this.state.urlValue,
-                user_id: this.props.loggedInUser.user.id
+                user_id: user.id
             })
         })
         .then(res => res.json())
