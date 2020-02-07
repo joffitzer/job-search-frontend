@@ -174,19 +174,22 @@ class ProfileContainer extends React.Component {
    
     render() {
 
-        let user 
-        if (this.props.loggedInUser){
+        let user
+        if (this.props.loggedInUser.user) {
             user = this.props.loggedInUser.user
-        } 
+        } else {
+            user = this.props.loggedInUser
+        }
 
         let allItemsArray
         let myItems
-        if (this.props.loggedInUser && this.state.allPortfolioItems.length){
+        if (this.props.isLoggedIn && this.state.allPortfolioItems.length){
             allItemsArray = this.state.allPortfolioItems
-            myItems = allItemsArray.filter(itemObj => this.props.loggedInUser.user.id === parseInt(itemObj.attributes.user.id))
+            myItems = allItemsArray.filter(itemObj => user.id === parseInt(itemObj.attributes.user.id))
         }
 
-        console.log('my items: ', myItems)
+        // myItems = allItemsArray.filter(itemObj => this.props.loggedInUser.user.id === parseInt(itemObj.attributes.user.id))
+
 
         let portfolioItemsArray
         if (myItems){
@@ -213,11 +216,15 @@ class ProfileContainer extends React.Component {
             <div>
                 <h1>Profile Container</h1>
                     <hr></hr>
-                    <h5>Name: {user.first_name} {user.last_name}</h5>
-                    <h5>Email: {user.email}</h5>
-                    <h5>Bootcamp: {user.bootcamp}</h5>
-                    <h5>Category: {user.category}</h5>
-                    <h5>Graduated: {user.grad_month}/{user.grad_year}</h5>
+                    {this.props.isLoggedIn ? 
+                        <div>
+                            <h5>Name: {user.first_name} {user.last_name}</h5>
+                            <h5>Email: {user.email}</h5>
+                            <h5>Bootcamp: {user.bootcamp}</h5>
+                            <h5>Category: {user.category}</h5>
+                            <h5>Graduated: {user.grad_month}/{user.grad_year}</h5>
+                        </div>
+                        : ""}
                     <hr></hr>
                     <h3>My Portfolio:</h3>
                     <button onClick={this.renderNewItemForm}>Add to my portfolio</button>
@@ -238,9 +245,9 @@ class ProfileContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    let { loggedInUser } = state;
+    let { loggedInUser, isLoggedIn } = state;
     return {
-      loggedInUser
+      loggedInUser, isLoggedIn
     }
   }
 
