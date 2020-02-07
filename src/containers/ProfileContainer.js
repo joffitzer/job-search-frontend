@@ -27,6 +27,12 @@ class ProfileContainer extends React.Component {
     }
 
     formatItem = (newItem) => {
+        let user 
+        if (this.props.loggedInUser.user) {
+            user = this.props.loggedInUser.user
+        } else {
+            user = this.props.loggedInUser
+        }
         let formattedItem
         formattedItem = {
             id: `${newItem.id}`,
@@ -36,14 +42,14 @@ class ProfileContainer extends React.Component {
                 blurb: newItem.blurb,
                 git_url: newItem.git_url,
                 user: {
-                    id: this.props.loggedInUser.user.id,
-                    first_name: this.props.loggedInUser.user.first_name,
-                    last_name: this.props.loggedInUser.user.last_name,
-                    email: this.props.loggedInUser.user.email,
-                    bootcamp: this.props.loggedInUser.user.bootcamp,
-                    category: this.props.loggedInUser.user.category,
-                    grad_month: this.props.loggedInUser.user.grad_month,
-                    grad_year: this.props.loggedInUser.user.grad_year
+                    id: user.id,
+                    first_name: user.first_name,
+                    last_name: user.last_name,
+                    email: user.email,
+                    bootcamp: user.bootcamp,
+                    category: user.category,
+                    grad_month: user.grad_month,
+                    grad_year: user.grad_year
                 }
             }
         }
@@ -56,7 +62,7 @@ class ProfileContainer extends React.Component {
         if (this.props.loggedInUser.user) {
             user = this.props.loggedInUser.user
         } else {
-            user = this.props.loggedInUser.id
+            user = this.props.loggedInUser
         }
         fetch ('http://localhost:3000/api/v1/portfolio_items', {
             method: 'POST',
