@@ -7,7 +7,7 @@ class UserAppForm extends React.Component {
         miniCl: ""
     }
 
-    handleSubmitApplication = (e) => {
+    handleSubmitApplication = (e, user) => {
         e.preventDefault();
         fetch ('http://localhost:3000/api/v1/user_apps', {
             method: 'POST',
@@ -18,7 +18,7 @@ class UserAppForm extends React.Component {
             body: JSON.stringify({
                 mini_cl: this.state.miniCl,
                 job_id: this.props.jobToShow.id,
-                user_id: this.props.loggedInUser.id
+                user_id: this.props.loggedInUser.user.id
             })
         }).then(this.setState({
             miniCl: ""
@@ -34,6 +34,14 @@ class UserAppForm extends React.Component {
     }
 
     render() {
+
+        // console.log('logged in user: ', this.props.loggedInUser)
+        // let user
+        // if (this.props.loggedInUser.user) {
+        //     user = this.props.loggedInUser.user
+        // } else {
+        //     user = this.props.loggedInUser
+        // }
 
         return(
             <form onSubmit={this.handleSubmitApplication}>

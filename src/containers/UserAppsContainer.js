@@ -16,12 +16,21 @@ class UserAppsContainer extends React.Component {
    
     render() {
 
-        let userAppCards
+        let user
+        if (this.props.loggedInUser.user) {
+            user = this.props.loggedInUser.user
+        } else {
+            user = this.props.loggedInUser
+        }
 
-        if (this.props.allUserApps.data){
-            userAppCards = this.props.allUserApps.data.map( userAppObj => {
-            return <UserAppCard key={userAppObj.id} userApp={userAppObj}/>
-        })} 
+        let myApps
+        let userAppCards
+        if (this.props.isLoggedIn && this.props.allUserApps.data){
+            myApps = this.props.allUserApps.data.filter(appObj => user.id === parseInt(appObj.attributes.user.id))
+            userAppCards = myApps.map(userAppObj => {
+              return <UserAppCard key={userAppObj.id} userApp={userAppObj}/>
+            })
+        }
 
         return (
             <div>
@@ -33,9 +42,9 @@ class UserAppsContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    let { allUserApps } = state;
+    let { allUserApps, isLoggedIn, loggedInUser } = state;
     return {
-      allUserApps
+      allUserApps, isLoggedIn, loggedInUser
     }
   }
   
