@@ -25,9 +25,21 @@ class JobShow extends React.Component {
 
     render() {
 
+        let user
+        if (this.props.loggedInUser.user) {
+            user = this.props.loggedInUser.user
+        } else {
+            user = this.props.loggedInUser
+        }
+
+        let userJobsAppliedTo
+        if (this.props.allUserApps.data) {
+            userJobsAppliedTo = this.props.allUserApps.data.filter(userApp => userApp.attributes.user.id === user.id)
+        }
+
         let jobIdsAppliedTo 
         if (this.props.allUserApps.data) {
-            jobIdsAppliedTo = this.props.allUserApps.data.map(jobObj => parseInt(jobObj.attributes.job.job.id))
+            jobIdsAppliedTo = userJobsAppliedTo.map(jobObj => parseInt(jobObj.attributes.job.job.id))
         }
 
         let alreadyApplied
@@ -60,10 +72,10 @@ class JobShow extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    let { jobToShow, allUserApps } = state;
+    let { jobToShow, allUserApps, loggedInUser } = state;
   
     return {
-        jobToShow, allUserApps
+        jobToShow, allUserApps, loggedInUser
     }
   }
 
