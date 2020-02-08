@@ -16,7 +16,7 @@ const EmployerJobCard = (props) => {
                 <h5>Salary Range: ${props.job.attributes.sal_range_low} - ${props.job.attributes.sal_range_high}</h5>
 
 
-                    <Link to={`/candidates/${props.job.id}`}>
+                    <Link to={`/candidates/job/${props.job.id}`}>
                         <button onClick={() => props.showJob(props.job)}>View Candidates for this job</button>
                     </Link>
 
