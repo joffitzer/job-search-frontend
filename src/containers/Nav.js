@@ -13,26 +13,38 @@ class Nav extends React.Component {
 
     render() {
 
+        console.log('nav props: ', this.props)
+
         return (
             <div>
-                {/* <h5>Logged In User: {this.props.isLoggedIn ? this.props.loggedInUser.attributes.first_name : "Nope"}</h5> */}
-                <div>Employer Nav</div>
-                <Link to="/employersignup"><div>Employer Sign Up</div></Link>
-                <Link to="/employerlogin"><div>Employer Log In</div></Link>
-                <Link to="/employerhome"><div>Employer Home</div></Link>
-                <Link to="/postjob"><div>Post a job</div></Link>
-                <Link to="/myjobs"><div>My Jobs</div></Link>
-                <hr></hr>
-                <div>User Nav</div>
-                <Link to="/signup"><div>Sign Up</div></Link>
-                <Link to="/login"><div>Log In</div></Link>
-                <Link to="/logout"><div onClick={this.logout}>Log Out</div></Link>
-                <Link to="/home"><div>Home</div></Link>
-                <Link to="/employers"><div>All Employers</div></Link>
-                <Link to="/jobs"><div>All Jobs</div></Link>
-                <Link to="/myapps"><div>My Applications</div></Link>
-                <Link to="/profile"><div>My Profile</div></Link>
-                <hr></hr>
+                {this.props.loggedInUser ? 
+                    <div>
+                        {(this.props.loggedInUser.logo || this.props.loggedInUser.employer) ? 
+                            <div>
+                                <div>Employer Nav</div>
+                                    {/* <Link to="/employersignup"><div>Employer Sign Up</div></Link>
+                                    <Link to="/employerlogin"><div>Employer Log In</div></Link> */}
+                                    <Link to="/employerhome"><div>Employer Home</div></Link>
+                                    <Link to="/postjob"><div>Post a job</div></Link>
+                                    <Link to="/myjobs"><div>My Jobs</div></Link> 
+                                    <Link to="/"><div onClick={this.logout}>Log Out</div></Link> 
+                            </div>
+                        : 
+                            <div>
+                                <div>User Nav</div>
+                                    {/* <Link to="/signup"><div>Sign Up</div></Link>
+                                    <Link to="/login"><div>Log In</div></Link> */}
+                                    <Link to="/home"><div>Home</div></Link>
+                                    <Link to="/employers"><div>All Employers</div></Link>
+                                    <Link to="/jobs"><div>All Jobs</div></Link>
+                                    <Link to="/myapps"><div>My Applications</div></Link>
+                                    <Link to="/profile"><div>My Profile</div></Link>
+                                    <Link to="/"><div onClick={this.logout}>Log Out</div></Link>
+                            </div>}
+                    </div>
+
+                    : ""}
+                    <hr></hr>
             </div>
         )
     }

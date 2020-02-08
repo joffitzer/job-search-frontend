@@ -106,14 +106,3 @@ const mapDispatchToProps = (dispatch) => {
   }
 
 export default cnx(mapStateToProps, mapDispatchToProps)(EmployerJobsContainer);
-
-
-                    {/* <label>
-                        Filter jobs by category:
-                        <select value={this.props.filterValue} onChange={this.handleChange}>
-                          <option value="All Jobs">All Jobs</option>
-                          <option value="Software Engineering">Software Engineering</option>
-                          <option value="Data Science">Data Science</option>
-                          <option value="UX/UI Design">UX/UI Design</option>
-                        </select>
-                    </label> */}

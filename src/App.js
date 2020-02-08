@@ -26,12 +26,10 @@ class App extends React.Component {
   }
 
   render(){
-
-    console.log('local storage: ', localStorage)
     
     return (
       <div>
-        <Nav />
+        {this.props.isLoggedIn ? <Nav /> : ""}
         <MainContainer />
       </div>
     );
@@ -40,10 +38,17 @@ class App extends React.Component {
 
 }
 
+const mapStateToProps = (state) => {
+  let { isLoggedIn } = state;
+  return {
+    isLoggedIn
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     logInUser: (user) => dispatch(logInUser(user)),
   }
 }
 
-export default cnx(null, mapDispatchToProps)(App);
+export default cnx(mapStateToProps, mapDispatchToProps)(App);

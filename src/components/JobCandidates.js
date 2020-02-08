@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import CandidateCard from '../components/CandidateCard'
 import { connect as cnx } from 'react-redux';
 import { getUserApps, showJob } from '../actionCreators'

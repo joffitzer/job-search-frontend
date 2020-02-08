@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
+import LandingPage from '../components/LandingPage' 
 import Thanks from '../components/Thanks'
 import EmployerSignup from '../components/EmployerSignup'
 import EmployerLogin from '../components/EmployerLogin'
@@ -10,7 +11,7 @@ import JobCandidates from '../components/JobCandidates'
 import CandidateShow from '../components/CandidateShow'
 import Signup from '../components/Signup'
 import Login from '../components/Login'
-import Logout from '../components/Logout'
+// import Logout from '../components/Logout'
 import Home from '../components/Home'
 import EmployersContainer from '../containers/EmployersContainer'
 import EmployerShow from '../components/EmployerShow'
@@ -23,6 +24,7 @@ const MainContainer = () => {
     return (
         <div>
             <h1>Main Container</h1>
+            <Route exact path="/" render={(routerProps) => <LandingPage {...routerProps}/>} />
             <Route exact path="/employersignup" render={(routerProps) => <EmployerSignup {...routerProps}/>} />
             <Route exact path="/employerlogin" render={(routerProps) => <EmployerLogin {...routerProps}/>} />
             <Route exact path="/employerhome" render={(routerProps) => <EmployerHome {...routerProps}/>} />
@@ -32,7 +34,7 @@ const MainContainer = () => {
             <Route exact path="/candidates/:id" render={(routerProps) => <CandidateShow {...routerProps}/>} />
             <Route exact path="/signup" render={(routerProps) => <Signup {...routerProps}/>} />
             <Route exact path="/login" render={(routerProps) => <Login {...routerProps}/>} />
-            <Route exact path="/logout" component={Logout} />
+            {/* <Route exact path="/logout" component={Logout} /> */}
             <Route exact path="/thanks" component={Thanks} />
             <Route exact path="/profile" component={ProfileContainer} />
             <Route exact path="/home" component={Home} />
