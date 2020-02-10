@@ -25,10 +25,14 @@ class EmployerLogin extends React.Component {
         })
           .then(resp => resp.json())
           .then(response => {
-            localStorage.setItem("token", response.token)
-            this.props.logInUser(response.employer)
+            if (response.token && response.employer) {
+              localStorage.setItem("token", response.token)
+              this.props.logInUser(response.employer)
+              this.props.history.push("/employerhome")
+            } else {
+              alert('Invalid Username or Password')
+            }
           })
-        .then( () => this.props.history.push("/employerhome"))
       }
 
     submitHandler = (e) => {
@@ -42,14 +46,12 @@ class EmployerLogin extends React.Component {
 
     render() {
 
-        console.log('logged in user: ', this.props.loggedInUser)
-
         return (
             <div>
                 <h3>login form to sign in an existing employer</h3>
                 <form onSubmit={this.submitHandler}>
-                    <input type="text" name="email" value={this.state.email} placeholder="enter email" onChange={this.changeHandler} />
-                    <input type="text" name="password" value={this.state.password} placeholder="enter password" onChange={this.changeHandler} />
+                    <label>Email<input type="text" name="email" value={this.state.email} placeholder="enter email" onChange={this.changeHandler} /></label>
+                    <label>Password<input type="text" name="password" value={this.state.password} placeholder="enter password" onChange={this.changeHandler} /></label>
             
                     <input type="submit" value="submit" />
 

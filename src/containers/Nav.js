@@ -13,8 +13,6 @@ class Nav extends React.Component {
 
     render() {
 
-        console.log('nav props: ', this.props)
-
         return (
             <div>
                 {this.props.loggedInUser ? 

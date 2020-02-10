@@ -25,10 +25,14 @@ class Login extends React.Component {
         })
           .then(resp => resp.json())
           .then(response => {
-            localStorage.setItem("token", response.token)
-            this.props.logInUser(response.user)
+            if (response.token) {
+              localStorage.setItem("token", response.token)
+              this.props.logInUser(response.user)
+              this.props.history.push("/home")
+            } else {
+              alert('Invalid Username or Password')
+            }
           })
-        .then( () => this.props.history.push("/home"))
       }
 
     submitHandler = (e) => {
@@ -48,8 +52,8 @@ class Login extends React.Component {
             <div>
                 <h3>login form to sign in an existing user</h3>
                 <form onSubmit={this.submitHandler}>
-                    <input type="text" name="email" value={this.state.email} placeholder="enter email" onChange={this.changeHandler} />
-                    <input type="text" name="password" value={this.state.password} placeholder="enter password" onChange={this.changeHandler} />
+                    <label>Email<input type="text" name="email" value={this.state.email} placeholder="enter email" onChange={this.changeHandler} /></label>
+                    <label>Password<input type="text" name="password" value={this.state.password} placeholder="enter password" onChange={this.changeHandler} /></label>
             
                     <input type="submit" value="submit" />
 

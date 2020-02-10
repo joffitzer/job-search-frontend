@@ -56,12 +56,12 @@ class EmployerSignup extends React.Component {
             <div>
                 <h3>signup form to create a new employer</h3>
                 <form onSubmit={this.submitHandler}>
-                    <input type="text" name="email" value={this.state.email} placeholder="enter email" onChange={this.changeHandler} />
-                    <input type="text" name="password" value={this.state.password} placeholder="enter password" onChange={this.changeHandler} />
-                    <input type="text" name="name" value={this.state.name} placeholder="enter company name" onChange={this.changeHandler} />
-                    <input type="text" name="description" value={this.state.description} placeholder="enter company description" onChange={this.changeHandler} />
-                    <input type="text" name="logo" value={this.state.logo} placeholder="enter logo" onChange={this.changeHandler} />
-                    <input type="text" name="industry" value={this.state.industry} placeholder="enter industry" onChange={this.changeHandler} />
+                    <label>Email<input type="text" name="email" value={this.state.email} placeholder="enter email" onChange={this.changeHandler} /></label>
+                    <label>Password<input type="text" name="password" value={this.state.password} placeholder="enter password" onChange={this.changeHandler} /></label>
+                    <label>Company Name<input type="text" name="name" value={this.state.name} placeholder="enter company name" onChange={this.changeHandler} /></label>
+                    <label>Company Description<input type="text" name="description" value={this.state.description} placeholder="enter company description" onChange={this.changeHandler} /></label>
+                    <label>Company Logo<input type="text" name="logo" value={this.state.logo} placeholder="enter logo" onChange={this.changeHandler} /></label>
+                    <label>Industry<input type="text" name="industry" value={this.state.industry} placeholder="enter industry" onChange={this.changeHandler} /></label>
                    
                     <input type="submit" value="submit" />
 

@@ -17,7 +17,7 @@ class EmployerJobsContainer extends React.Component {
     }
 
     deleteJob = (job) => {
-        fetch(`http://localhost:3000/api/v1/portfolio_items/${job.id}`,  {
+        fetch(`http://localhost:3000/api/v1/jobs/${job.id}`,  {
             method: 'DELETE'
         })
         .then(this.props.deleteJob(job))

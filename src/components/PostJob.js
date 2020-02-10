@@ -8,7 +8,7 @@ class PostJob extends React.Component {
     state = {
         title: "",
         location: "",
-        category: "",
+        category: "Software Engineering",
         summary: "",
         description: "",
         sal_range_low: "",
@@ -18,7 +18,6 @@ class PostJob extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-            console.log('logged in user before post of job: ', this.props.loggedInUser)
         let user 
         if (this.props.loggedInUser.employer) {
             user = this.props.loggedInUser.employer
@@ -44,10 +43,10 @@ class PostJob extends React.Component {
             })
         })
         .then(res => res.json())
-        .then(newJob => {
-            console.log(newJob)
-            // return this.formatItem(newItem)
-        })
+        .then(res => console.log(res))
+        .then(() => 
+        this.props.history.push('/jobposted')
+    )
         // .then(formattedItem => this.setState({
         //     allPortfolioItems: [...this.state.allPortfolioItems, formattedItem],
         //     showForm: !this.state.showForm,
@@ -64,7 +63,7 @@ class PostJob extends React.Component {
     }
     render() {
 
-        console.log('state of post job: ', this.state)
+        console.log('state on post job: ', this.state)
 
         return(
             <div>
@@ -80,8 +79,9 @@ class PostJob extends React.Component {
                     </label>
                     <label>
                     Category:
-                    <input type="text" name="category" value={this.state.category} onChange={this.changeHandler} />
+                    <select name="category" value={this.state.category} onChange={this.changeHandler}><option value="Software Engineering">Software Engineering</option><option value="Data Science">Data Science</option><option value="UX/UI Design">UX/UI Design</option></select>
                     </label>
+                    {/* <input type="text" name="category" value={this.state.category} onChange={this.changeHandler} /> */}
                     <label>
                     Summary:
                     <input type="text" name="summary" value={this.state.summary} onChange={this.changeHandler} />
