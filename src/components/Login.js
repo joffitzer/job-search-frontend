@@ -1,6 +1,11 @@
 import React from 'react'
 import { connect as cnx } from 'react-redux';
 import { logInUser } from '../actionCreators'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 class Login extends React.Component {
     state = {
@@ -50,14 +55,43 @@ class Login extends React.Component {
 
         return (
             <div>
-                <h3>login form to sign in an existing user</h3>
+                {/* <h3>login form to sign in an existing user</h3>
                 <form onSubmit={this.submitHandler}>
                     <label>Email<input type="text" name="email" value={this.state.email} placeholder="enter email" onChange={this.changeHandler} /></label>
                     <label>Password<input type="text" name="password" value={this.state.password} placeholder="enter password" onChange={this.changeHandler} /></label>
             
                     <input type="submit" value="submit" />
 
-                </form>
+                </form> */}
+
+
+                <Container>
+                    <Row>
+                      <Col></Col>
+                      <Col>
+                      
+                        <h1>Job Seeker Login</h1>
+
+                        <Form onSubmit={this.submitHandler}> 
+                          <Form.Group controlId={this.state.email}>
+                            <Form.Label>Email address</Form.Label>
+                            <Form.Control type="text" name="email" placeholder="Enter email" onChange={this.changeHandler}/>
+                          </Form.Group>
+
+                          <Form.Group controlId={this.state.password}>
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type="password" name="password" placeholder="Password" onChange={this.changeHandler}/>
+                          </Form.Group>
+                          
+                          <Button variant="primary" type="submit">
+                            Submit
+                          </Button>
+                        </Form>
+
+                        </Col>
+                      <Col></Col>
+                    </Row>
+                </Container>
 
             </div>
         )

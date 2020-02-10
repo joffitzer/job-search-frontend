@@ -1,8 +1,10 @@
 import React from 'react';
 import MainContainer from './containers/MainContainer'
-import Nav from './containers/Nav'
+import Navbars from './containers/Navbars'
+import LoggedOutNav from './components/LoggedOutNav'
 import { connect as cnx } from 'react-redux';
 import { logInUser } from './actionCreators'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
 
@@ -29,7 +31,7 @@ class App extends React.Component {
     
     return (
       <div>
-        {this.props.isLoggedIn ? <Nav /> : ""}
+        {this.props.isLoggedIn ? <Navbars /> : <LoggedOutNav />}
         <MainContainer />
       </div>
     );

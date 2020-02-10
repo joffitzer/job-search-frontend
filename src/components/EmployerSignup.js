@@ -1,6 +1,12 @@
 import React from 'react'
 import { connect as cnx } from 'react-redux';
 import { logInUser } from '../actionCreators'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+
 
 class EmployerSignup extends React.Component {
     state = {
@@ -54,7 +60,7 @@ class EmployerSignup extends React.Component {
 
         return (
             <div>
-                <h3>signup form to create a new employer</h3>
+                {/* <h3>signup form to create a new employer</h3>
                 <form onSubmit={this.submitHandler}>
                     <label>Email<input type="text" name="email" value={this.state.email} placeholder="enter email" onChange={this.changeHandler} /></label>
                     <label>Password<input type="text" name="password" value={this.state.password} placeholder="enter password" onChange={this.changeHandler} /></label>
@@ -63,9 +69,57 @@ class EmployerSignup extends React.Component {
                     <label>Company Logo<input type="text" name="logo" value={this.state.logo} placeholder="enter logo" onChange={this.changeHandler} /></label>
                     <label>Industry<input type="text" name="industry" value={this.state.industry} placeholder="enter industry" onChange={this.changeHandler} /></label>
                    
-                    <input type="submit" value="submit" />
+                    <input type="submit" value="submit" /> */}
 
-                </form>
+                  <Container>
+                    <Row>
+                      <Col></Col>
+                      <Col>
+                      
+                        <h1>Employer Signup</h1>
+                      
+                        <Form onSubmit={this.submitHandler}> 
+                          <Form.Group controlId={this.state.email}>
+                            <Form.Label>Email address</Form.Label>
+                            <Form.Control type="text" name="email" placeholder="Enter email" onChange={this.changeHandler}/>
+                          </Form.Group>
+
+                          <Form.Group controlId={this.state.password}>
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type="password" name="password" placeholder="Password" onChange={this.changeHandler}/>
+                          </Form.Group>
+
+                          <Form.Group controlId={this.state.name}>
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control type="text" name="name" placeholder="Name" onChange={this.changeHandler}/>
+                          </Form.Group>
+
+                          <Form.Group controlId={this.state.description}>
+                            <Form.Label>Description</Form.Label>
+                            <Form.Control type="text" name="description" placeholder="Description" onChange={this.changeHandler}/>
+                          </Form.Group>
+
+                          <Form.Group controlId={this.state.logo}>
+                            <Form.Label>Logo</Form.Label>
+                            <Form.Control type="text" name="logo" placeholder="Logo" onChange={this.changeHandler}/>
+                          </Form.Group>
+
+                          <Form.Group controlId={this.state.industry}>
+                            <Form.Label>Industry</Form.Label>
+                            <Form.Control type="text" name="industry" placeholder="Industry" onChange={this.changeHandler}/>
+                          </Form.Group>
+                          
+                          <Button variant="primary" type="submit">
+                            Submit
+                          </Button>
+                        </Form>
+                      </Col>
+                      <Col></Col>
+                    </Row>
+
+                  </Container>
+
+                
 
             </div>
         )

@@ -24,7 +24,7 @@ import UserAppsContainer from '../containers/UserAppsContainer'
 const MainContainer = () => {
     return (
         <div>
-            <h1>Main Container</h1>
+            {/* <h1>Main Container</h1> */}
             <Route exact path="/" render={(routerProps) => <LandingPage {...routerProps}/>} />
             <Route exact path="/employersignup" render={(routerProps) => <EmployerSignup {...routerProps}/>} />
             <Route exact path="/employerlogin" render={(routerProps) => <EmployerLogin {...routerProps}/>} />
