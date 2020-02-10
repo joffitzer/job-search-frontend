@@ -2,6 +2,7 @@ import React from 'react';
 import { connect as cnx } from 'react-redux';
 import PortfolioCard from '../components/PortfolioCard'
 import NewPortfolioItemForm from '../components/NewPortfolioItemForm'
+import Container from 'react-bootstrap/Container'
 
 class ProfileContainer extends React.Component {
 
@@ -226,31 +227,33 @@ class ProfileContainer extends React.Component {
 
         return (
             <div>
-                <h1>My Profile</h1>
-                    <hr></hr>
-                    {this.props.isLoggedIn ? 
-                        <div>
-                            <h5>Name: {user.first_name} {user.last_name}</h5>
-                            <h5>Email: {user.email}</h5>
-                            <h5>Bootcamp: {user.bootcamp}</h5>
-                            <h5>Category: {user.category}</h5>
-                            <h5>Graduated: {user.grad_month}/{user.grad_year}</h5>
-                        </div>
-                        : ""}
-                    <hr></hr>
-                    <h3>My Portfolio</h3>
-                    <button onClick={this.renderNewItemForm}>Add to my portfolio</button>
-                    {this.state.showForm ? 
-                        <NewPortfolioItemForm 
-                            handleSubmit={this.handleSubmit}
-                            titleValue={this.state.titleValue}
-                            handleTitleChange={this.handleTitleChange}
-                            blurbValue={this.state.blurbValue}
-                            handleBlurbChange={this.handleBlurbChange}
-                            urlValue={this.state.urlValue}
-                            handleUrlChange={this.handleUrlChange}/>
-                        :
-                        portfolioItemsArray}
+                <Container>
+                    <h1>My Profile</h1>
+                        <hr></hr>
+                        {this.props.isLoggedIn ? 
+                            <div>
+                                <h5>Name: {user.first_name} {user.last_name}</h5>
+                                <h5>Email: {user.email}</h5>
+                                <h5>Bootcamp: {user.bootcamp}</h5>
+                                <h5>Category: {user.category}</h5>
+                                <h5>Graduated: {user.grad_month}/{user.grad_year}</h5>
+                            </div>
+                            : ""}
+                        <hr></hr>
+                        <h3>My Portfolio</h3>
+                        <button onClick={this.renderNewItemForm}>Add to my portfolio</button>
+                        {this.state.showForm ? 
+                            <NewPortfolioItemForm 
+                                handleSubmit={this.handleSubmit}
+                                titleValue={this.state.titleValue}
+                                handleTitleChange={this.handleTitleChange}
+                                blurbValue={this.state.blurbValue}
+                                handleBlurbChange={this.handleBlurbChange}
+                                urlValue={this.state.urlValue}
+                                handleUrlChange={this.handleUrlChange}/>
+                            :
+                            portfolioItemsArray}
+                </Container>
             </div>
         )
     }

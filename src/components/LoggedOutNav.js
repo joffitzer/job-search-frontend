@@ -15,7 +15,7 @@ class Navbars extends React.Component {
 
         return (
             <div>
-                <Navbar bg="dark" variant="dark">
+                <Navbar bg="primary" variant="dark">
                     <Navbar.Brand href="/">Launchpad</Navbar.Brand>
                 </Navbar>
             </div>

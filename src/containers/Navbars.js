@@ -21,7 +21,7 @@ class Navbars extends React.Component {
                     <div>
                         {(this.props.loggedInUser.logo || this.props.loggedInUser.employer) ? 
                             <div>
-                                <Navbar bg="dark" variant="dark">
+                                <Navbar bg="primary" variant="dark">
                                     <Navbar.Brand href="/employerhome">Employer Home</Navbar.Brand>
                                         <Nav className="mr-auto">
                                             <Nav.Link href='/postjob'>Post a Job</Nav.Link>
@@ -44,7 +44,7 @@ class Navbars extends React.Component {
                                     <Link to="/myapps"><div>My Applications</div></Link>
                                     <Link to="/profile"><div>My Profile</div></Link>
                                     <Link to="/"><div onClick={this.logout}>Log Out</div></Link> */}
-                                    <Navbar bg="dark" variant="dark">
+                                    <Navbar bg="primary" variant="dark">
                                     <Navbar.Brand href="/home">Home</Navbar.Brand>
                                         <Nav className="mr-auto">
                                             <Nav.Link href='/jobs'>All Jobs</Nav.Link>

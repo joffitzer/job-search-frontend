@@ -2,6 +2,7 @@ import React from 'react'
 import { connect as cnx } from 'react-redux';
 import UserAppCard from '../components/UserAppCard'
 import { getUserApps} from '../actionCreators';
+import Container from 'react-bootstrap/Container'
 
 
 class UserAppsContainer extends React.Component {
@@ -34,8 +35,12 @@ class UserAppsContainer extends React.Component {
 
         return (
             <div>
+              <Container>
+
                 <h1>My applications</h1>  
                     {userAppCards ? userAppCards : "No apps yet"}
+
+              </Container>
             </div>
         )
     }

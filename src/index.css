@@ -36,3 +36,13 @@ code {
   object-fit: cover;
   float: right;
 }
+
+/* html { 
+  background-color: lightgray; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} */
+
+

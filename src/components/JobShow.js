@@ -1,7 +1,9 @@
 import React from 'react'
 import { connect as cnx } from 'react-redux';
 import UserAppForm from '../components/UserAppForm'
-import { getUserApps } from '../actionCreators' 
+import { getUserApps, getJobs, showJob } from '../actionCreators' 
+import Container from 'react-bootstrap/Container'
+import Button from 'react-bootstrap/Button'
 
 class JobShow extends React.Component {
 
@@ -21,6 +23,11 @@ class JobShow extends React.Component {
             .then(userApps => {
                 this.props.getUserApps(userApps)
             })
+            .then( fetch ('http://localhost:3000/api/v1/jobs')
+                    .then(res => res.json())
+                    .then(jobs => {
+                        this.props.getJobs(jobs)
+                    }))
     }
 
     render() {
@@ -47,24 +54,49 @@ class JobShow extends React.Component {
             alreadyApplied = true
         }
 
+        // let job
+        // if (this.props.jobToShow) {
+        //     job = this.props.jobToShow
+        // } else {
+        //     job = this.props.allJobs.find(job => parseInt(job.id) === parseInt(this.props.match.params.id))
+        // }
+
+        let job
+        if (this.props.allJobs) {
+            job = this.props.allJobs.find(job => parseInt(job.id) === parseInt(this.props.match.params.id))
+            this.props.showJob(job)
+        }
+
+        // let job
+        // if (this.props.allJobs.data) {
+        //     job = this.props.allJobs.data.filter(job => app.attributes.job.job.id === parseInt(this.props.match.params.id))
+        // }
+
         return(
             <div>
-                <h5>Job Show Page</h5>
-                <h5>Employer: {this.props.jobToShow.attributes.employer.name}</h5> 
-                <h5>Title: {this.props.jobToShow.attributes.title}</h5>
-                <h5>Location: {this.props.jobToShow.attributes.location}</h5>
-                <h5>Category: {this.props.jobToShow.attributes.category}</h5>
-                <h5>Summary: {this.props.jobToShow.attributes.summary}</h5>
+                {/* {job ? job.attributes.employer.name : "Job not found"} */}
+                <Container>
+                    {job ? 
+                    <div>
+                        <h5>Employer: {job.attributes.employer.name}</h5> 
+                        <h5>Title: {job.attributes.title}</h5>
+                        <h5>Location: {job.attributes.location}</h5>
+                        <h5>Category: {job.attributes.category}</h5>
+                        <h5>Summary: {job.attributes.summary}</h5>
+                    </div>
+                    : "Job not found"}
 
-                {alreadyApplied ? 
-                "You applied to this job already" 
-                : 
-                <button onClick={this.clickApply}>APPLY TO THIS JOB</button>}
-                
-                {this.state.applyClicked ? 
-                <UserAppForm routerProps={this.props}/> 
-                : 
-                null}
+                    {alreadyApplied ? 
+                    "You applied to this job already" 
+                    : 
+                    <Button variant="primary" onClick={this.clickApply}>Apply</Button>}
+                    
+                    {this.state.applyClicked ? 
+                    <UserAppForm routerProps={this.props}/> 
+                    : 
+                    null}
+
+                </Container>
 
             </div>
         )
@@ -72,16 +104,18 @@ class JobShow extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    let { jobToShow, allUserApps, loggedInUser } = state;
+    let { jobToShow, allUserApps, loggedInUser, allJobs } = state;
   
     return {
-        jobToShow, allUserApps, loggedInUser
+        jobToShow, allUserApps, loggedInUser, allJobs
     }
   }
 
   const mapDispatchToProps = (dispatch) => {
     return {
         getUserApps: (userApps) => dispatch(getUserApps(userApps)),
+        getJobs: (jobs) => dispatch(getJobs(jobs)),
+        showJob: (job) => dispatch(showJob(job))
       }
   }
 
