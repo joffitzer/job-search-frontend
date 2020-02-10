@@ -3,6 +3,7 @@ import { connect as cnx } from 'react-redux';
 import EmployerJobCard from '../components/EmployerJobCard'
 // import JobShow from '../components/JobShow'
 import { getJobs, showJob, deleteJob } from '../actionCreators';
+import Container from 'react-bootstrap/Container'
 
 
 class EmployerJobsContainer extends React.Component {
@@ -16,7 +17,7 @@ class EmployerJobsContainer extends React.Component {
             // .then(this.props.setFilterValue("All Jobs"))
     }
 
-    deleteJob = (job) => {
+    handleDeleteJob = (job) => {
         fetch(`http://localhost:3000/api/v1/jobs/${job.id}`,  {
             method: 'DELETE'
         })
@@ -61,7 +62,7 @@ class EmployerJobsContainer extends React.Component {
 
         if (myJobs) {
             employerJobCards = myJobs.map(jobObj => {
-                return <EmployerJobCard key={jobObj.id} job={jobObj} deleteJob={this.deleteJob} />
+                return <EmployerJobCard key={jobObj.id} job={jobObj} handleDeleteJob={this.handleDeleteJob} />
             })
         }
 
@@ -83,8 +84,12 @@ class EmployerJobsContainer extends React.Component {
 
         return (
             <div>
-                <h1>MY Employer Jobs Container</h1>
-                    {myJobs.length ?  employerJobCards : "" } 
+                <Container>
+
+                    <h1>My Jobs</h1>
+                        {myJobs.length ?  employerJobCards : "" } 
+
+                </Container>
             </div>
         )
     }

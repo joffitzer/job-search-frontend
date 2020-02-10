@@ -29,12 +29,12 @@ class JobCandidates extends React.Component {
             candidateCards = candidates.map(candidate => {
                 return <CandidateCard key={candidate.id} candidate={candidate}/>
             })
-        }
+        } 
 
         return(
             <div>
-                <h5>Job Candidates Page</h5>
-                {jobApps ? candidateCards : ""}
+                <h5>Job Candidates</h5>
+                { candidates ? candidateCards : "No candidates yet!"}
             </div>
         )
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect as cnx } from 'react-redux'
 import { logOutUser,  } from '../actionCreators'
 import Navbar from 'react-bootstrap/Navbar'

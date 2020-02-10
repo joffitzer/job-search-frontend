@@ -2,6 +2,11 @@ import React from 'react'
 import { connect as cnx } from 'react-redux';
 // import { logInUser } from '../actionCreators'
 // import { Link } from 'react-router-dom'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 class PostJob extends React.Component {
 
@@ -63,43 +68,65 @@ class PostJob extends React.Component {
     }
     render() {
 
-        console.log('state on post job: ', this.state)
-
         return(
             <div>
-                <h1>Post a Job</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                    Title:
-                    <input type="text" name="title" value={this.state.title} onChange={this.changeHandler} />
-                    </label>
-                    <label>
-                    Location:
-                    <input type="text" name="location" value={this.state.location} onChange={this.changeHandler} />
-                    </label>
-                    <label>
-                    Category:
-                    <select name="category" value={this.state.category} onChange={this.changeHandler}><option value="Software Engineering">Software Engineering</option><option value="Data Science">Data Science</option><option value="UX/UI Design">UX/UI Design</option></select>
-                    </label>
-                    {/* <input type="text" name="category" value={this.state.category} onChange={this.changeHandler} /> */}
-                    <label>
-                    Summary:
-                    <input type="text" name="summary" value={this.state.summary} onChange={this.changeHandler} />
-                    </label>
-                    <label>
-                    Description:
-                    <input type="text" name="description" value={this.state.description} onChange={this.changeHandler} />
-                    </label>
-                    <label>
-                    Salary Range (low):
-                    <input type="text" name="sal_range_low" value={this.state.sal_range_low} onChange={this.changeHandler} />
-                    </label>
-                    <label>
-                    Salary Range (high):
-                    <input type="text" name="sal_range_high" value={this.state.sal_range_high} onChange={this.changeHandler} />
-                    </label>
-                <input type="submit" value="Submit" />
-            </form>
+
+            <Container>
+                    <Row>
+                      <Col></Col>
+                      <Col>
+                      
+                        <h1>Post a Job</h1>
+                      
+                        <Form onSubmit={this.handleSubmit}> 
+                          <Form.Group controlId={this.state.title}>
+                            <Form.Label>Title</Form.Label>
+                            <Form.Control type="text" name="title" placeholder="Enter job title" onChange={this.changeHandler}/>
+                          </Form.Group>
+
+                          <Form.Group controlId={this.state.location}>
+                            <Form.Label>Location</Form.Label>
+                            <Form.Control type="text" name="location" placeholder="Location" onChange={this.changeHandler}/>
+                          </Form.Group>
+
+                          <Form.Group controlId={this.state.category}>
+                            <Form.Label>Category</Form.Label>
+                            <Form.Control as="select" name="category" placeholder="Job Category" onChange={this.changeHandler}>
+                              <option>Software Engineering</option>
+                              <option>Data Science</option>
+                              <option>UX/UI Design</option>
+                            </Form.Control>
+                          </Form.Group>
+
+                          <Form.Group controlId={this.state.summary}>
+                            <Form.Label>Job Summary</Form.Label>
+                            <Form.Control type="text" name="summary" placeholder="Job Summary" onChange={this.changeHandler}/>
+                          </Form.Group>
+
+                          <Form.Group controlId={this.state.description}>
+                            <Form.Label>Job Description</Form.Label>
+                            <Form.Control type="text" name="description" placeholder="Job Description" onChange={this.changeHandler}/>
+                          </Form.Group>
+
+                          <Form.Group controlId={this.state.sal_range_low}>
+                            <Form.Label>Salary Range (low)</Form.Label>
+                            <Form.Control type="text" name="sal_range_low" placeholder="Salary Range (low)" onChange={this.changeHandler}/>
+                          </Form.Group>
+
+                          <Form.Group controlId={this.state.sal_range_high}>
+                            <Form.Label>Salary Range (high)</Form.Label>
+                            <Form.Control type="text" name="sal_range_high" placeholder="Salary Range (high)" onChange={this.changeHandler}/>
+                          </Form.Group>
+                          
+                          <Button variant="primary" type="submit">
+                            Submit
+                          </Button>
+                        </Form>
+                      </Col>
+                      <Col></Col>
+                    </Row>
+
+                  </Container>
             </div>
         )
     }

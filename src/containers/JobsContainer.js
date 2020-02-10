@@ -3,6 +3,7 @@ import { connect as cnx } from 'react-redux';
 import JobCard from '../components/JobCard'
 import JobShow from '../components/JobShow'
 import { getJobs, showJob, setFilterValue } from '../actionCreators';
+import Container from 'react-bootstrap/Container'
 
 
 class JobsContainer extends React.Component {
@@ -39,6 +40,7 @@ class JobsContainer extends React.Component {
                 filteredJobs = this.props.allJobs.filter(jobObj => jobObj.attributes.category === "UX/UI Design")
               break;
             default:
+              filteredJobs = this.props.allJobs
               break;
           }
         }
@@ -63,7 +65,7 @@ class JobsContainer extends React.Component {
 
         return (
             <div>
-                <h1>Jobs Container</h1>
+              <Container>
                   <form >
                     <label>
                         Filter jobs by category:
@@ -80,6 +82,7 @@ class JobsContainer extends React.Component {
                          :
                          jobCards
                     } 
+              </Container>
             </div>
         )
     }

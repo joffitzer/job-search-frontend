@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import { connect as cnx } from 'react-redux';
 import { showJob } from '../actionCreators'
 import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
+// import Row from 'react-bootstrap/Row'
 
 const JobCard = (props) => {
 

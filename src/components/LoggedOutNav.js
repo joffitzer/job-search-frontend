@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link, withRouter } from 'react-router-dom';
 import { connect as cnx } from 'react-redux'
 import { logOutUser,  } from '../actionCreators'
 import Navbar from 'react-bootstrap/Navbar'
@@ -39,4 +38,4 @@ return {
 }
 }
 
-export default withRouter(cnx(mapStateToProps, mapDispatchToProps)(Navbars))
+export default (cnx(mapStateToProps, mapDispatchToProps)(Navbars))
