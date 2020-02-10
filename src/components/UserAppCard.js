@@ -37,8 +37,8 @@ class UserAppCard extends React.Component {
 
         return(
             <div>
-                <h5>User App Card</h5>
                     <h5>You submitted this application on: {applyDate}</h5>
+                    <img className="cardLogo" src={this.props.userApp.attributes.job.employer.logo} alt="logo"/>
                     <h5>Job Title: {this.props.userApp.attributes.job.job.title}</h5>
                     <h5>Employer: {this.props.userApp.attributes.job.employer.name}</h5>
                     <h5>Your Mini Cover Letter: {this.props.userApp.attributes.mini_cl}</h5>

@@ -226,7 +226,7 @@ class ProfileContainer extends React.Component {
 
         return (
             <div>
-                <h1>Profile Container</h1>
+                <h1>My Profile</h1>
                     <hr></hr>
                     {this.props.isLoggedIn ? 
                         <div>
@@ -238,7 +238,7 @@ class ProfileContainer extends React.Component {
                         </div>
                         : ""}
                     <hr></hr>
-                    <h3>My Portfolio:</h3>
+                    <h3>My Portfolio</h3>
                     <button onClick={this.renderNewItemForm}>Add to my portfolio</button>
                     {this.state.showForm ? 
                         <NewPortfolioItemForm 

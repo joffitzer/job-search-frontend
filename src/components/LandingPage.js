@@ -9,11 +9,9 @@ import Col from 'react-bootstrap/Col'
 class LandingPage extends React.Component {
 
     render() {
-
         return(
-
             <div>
-                <Container>
+                <Container className="center">    
                     <Row className="justify-content-md-center">
                         <Col xs lg="2">
                             <Link to="/employersignup"><Button variant="primary">Employer Sign Up</Button></Link>
@@ -28,9 +26,7 @@ class LandingPage extends React.Component {
                 </Container>
             </div>
         )
-
     }
-
 }
 
 export default LandingPage;

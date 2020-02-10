@@ -2,6 +2,7 @@ import React from 'react'
 import EmployerCard from '../components/EmployerCard'
 import { connect as cnx } from 'react-redux';
 import { getEmployers } from '../actionCreators'
+import Container from 'react-bootstrap/Container'
 
 class EmployersContainer extends React.Component {
 
@@ -48,9 +49,10 @@ class EmployersContainer extends React.Component {
         
         return (
             <div>
-                <h1>All Employers:</h1>
-                <button onClick={this.handleAlphaSort}>Sort Employers Alphabetically</button>
-                    {this.state.sort ? alphaSortedEmployerCards : employerCards}
+                <Container>
+                    <button onClick={this.handleAlphaSort}>Sort Employers Alphabetically</button>
+                        {this.state.sort ? alphaSortedEmployerCards : employerCards}
+                </Container>
             </div>
         )
     }

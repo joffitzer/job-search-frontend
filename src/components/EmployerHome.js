@@ -14,13 +14,12 @@ class EmployerHome extends React.Component {
 
         return(
             <div>
-                <h1>Employer Home Page</h1>
-                    <h3>My Profile Information</h3>
+                <h1>My Profile Information</h1>
                         <h5>Name: {employer.name}</h5>
+                        <img className="employerLogo" src={employer.logo} alt="logo"/>
                         <h5>Email: {employer.email}</h5>
                         <h5>Description: {employer.description}</h5>
                         <h5>Industry: {employer.industry}</h5>
-                        <h5>Logo: {employer.logo}</h5>
             </div>
         )
     }

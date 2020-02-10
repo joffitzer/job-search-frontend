@@ -29,15 +29,14 @@ class Home extends React.Component {
     render(){
 
         return(
-            <div>
+            <div className="center">
                 <Container>
             
                     <Row>
-                        <Col></Col>
 
                         <Col>
                         
-                            <h3> I'm looking for 
+                            <h3> I'm looking for {"  "}
             
                                         <select value={this.state.jobType} onChange={this.handleJobTypeChange}>
                                         <option value="All">All</option>
@@ -55,15 +54,15 @@ class Home extends React.Component {
                                         <option value="San Francisco">San Francisco</option>
                                         <option value="Chicago">Chicago</option>
                                         </select> */}
-                            </h3>
+                            
 
                                     <Link to={`/jobs`}>
                                         <Button variant="primary" onClick={() => this.props.setFilterValue(this.state.jobType)}>Search Jobs</Button>
                                     </Link>
+
+                            </h3>
                            
                         </Col>
-
-                        <Col></Col>
 
                     </Row>
 
