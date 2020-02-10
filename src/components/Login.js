@@ -25,12 +25,12 @@ class Login extends React.Component {
         })
           .then(resp => resp.json())
           .then(response => {
-            if (response.token) {
+            if (response.errors) {
+              alert('Invalid Username or Password')
+            } else {
               localStorage.setItem("token", response.token)
               this.props.logInUser(response.user)
-              this.props.history.push("/home")
-            } else {
-              alert('Invalid Username or Password')
+              this.props.history.push('/home')
             }
           })
       }

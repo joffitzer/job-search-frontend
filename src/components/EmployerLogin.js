@@ -25,12 +25,12 @@ class EmployerLogin extends React.Component {
         })
           .then(resp => resp.json())
           .then(response => {
-            if (response.token && response.employer) {
+            if (response.errors) {
+              alert('Invalid Username or Password')
+            } else {
               localStorage.setItem("token", response.token)
               this.props.logInUser(response.employer)
-              this.props.history.push("/employerhome")
-            } else {
-              alert('Invalid Username or Password')
+              this.props.history.push('/employerhome')
             }
           })
       }
@@ -48,14 +48,16 @@ class EmployerLogin extends React.Component {
 
         return (
             <div>
-                <h3>login form to sign in an existing employer</h3>
-                <form onSubmit={this.submitHandler}>
-                    <label>Email<input type="text" name="email" value={this.state.email} placeholder="enter email" onChange={this.changeHandler} /></label>
-                    <label>Password<input type="text" name="password" value={this.state.password} placeholder="enter password" onChange={this.changeHandler} /></label>
-            
-                    <input type="submit" value="submit" />
 
-                </form>
+                
+                  <h3>login form to sign in an existing employer</h3>
+                  <form onSubmit={this.submitHandler}>
+                      <label>Email<input type="text" name="email" value={this.state.email} placeholder="enter email" onChange={this.changeHandler} /></label>
+                      <label>Password<input type="text" name="password" value={this.state.password} placeholder="enter password" onChange={this.changeHandler} /></label>
+              
+                      <input type="submit" value="submit" />
+                  </form>
+  
 
             </div>
         )
@@ -63,9 +65,9 @@ class EmployerLogin extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    let { loggedInUser } = state;
+    let { loggedInUser, isLoggedIn } = state;
     return {
-        loggedInUser
+        loggedInUser, isLoggedIn
     }
   }
 
