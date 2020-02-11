@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from 'react-bootstrap/Button'
 
 class PortfolioItemInfo extends React.Component {
 
@@ -9,10 +10,11 @@ class PortfolioItemInfo extends React.Component {
                 <h5>Title: {this.props.item.attributes.title}</h5> 
                 <h5>Blurb: {this.props.item.attributes.blurb}</h5>              
                 <h5>GitHub Url: {this.props.item.attributes.git_url}</h5> 
-        
-                <button onClick={() => this.props.loadEditForm(this.props.item)}>Edit this portfolio item</button>  
+                <div className="profile-buttons">
+                    <Button onClick={() => this.props.loadEditForm(this.props.item)}>Edit this portfolio item</Button>  
+                </div>
 
-                <button onClick={() => this.props.deleteItem(this.props.item.id)}>Delete this portfolio item</button>
+                <Button onClick={() => this.props.deleteItem(this.props.item.id)}>Delete this portfolio item</Button>
             </div>
         )
     }

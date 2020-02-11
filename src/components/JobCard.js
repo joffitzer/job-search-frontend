@@ -3,28 +3,25 @@ import {Link} from 'react-router-dom'
 import { connect as cnx } from 'react-redux';
 import { showJob } from '../actionCreators'
 import Container from 'react-bootstrap/Container'
-// import Row from 'react-bootstrap/Row'
+import Button from 'react-bootstrap/Button'
 
 const JobCard = (props) => {
 
     return(
-        <div>
             <Container>
-                    <h5>Employer: {props.job.attributes.employer.name}</h5>
+                    <p><b>{props.job.attributes.employer.name}</b></p>
                     <img className="cardLogo" src={props.job.attributes.employer.logo} alt="logo"/>
-                    <h5>Job Title: {props.job.attributes.title}</h5>
-                    <h5>Location: {props.job.attributes.location}</h5>
-                    <h5>Category: {props.job.attributes.category}</h5>
-                    <h5>Job Summary: {props.job.attributes.summary}</h5>
-                    <h5>Salary Range: ${props.job.attributes.sal_range_low} - ${props.job.attributes.sal_range_high}</h5>
+                    <b>{props.job.attributes.title}</b>
+                    <p><i>{props.job.attributes.location}</i></p>
+                    <i>{props.job.attributes.category}</i>
+                    <p><sub>{props.job.attributes.summary}</sub></p>
+                    <p><sub>${props.job.attributes.sal_range_low} - ${props.job.attributes.sal_range_high}</sub></p>
                 
                     <Link to={`/jobs/${props.job.id}`}>
-                        <button onClick={() => props.showJob(props.job)}>View Job Details and Apply</button>
+                        <Button variant="primary" onClick={() => props.showJob(props.job)}>View Job Details and Apply</Button>
                     </Link>
-
                     <hr></hr>
             </Container>
-        </div>
     )
 }
 

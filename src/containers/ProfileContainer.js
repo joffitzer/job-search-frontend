@@ -3,6 +3,7 @@ import { connect as cnx } from 'react-redux';
 import PortfolioCard from '../components/PortfolioCard'
 import NewPortfolioItemForm from '../components/NewPortfolioItemForm'
 import Container from 'react-bootstrap/Container'
+import Button from 'react-bootstrap/Button'
 
 class ProfileContainer extends React.Component {
 
@@ -241,7 +242,9 @@ class ProfileContainer extends React.Component {
                             : ""}
                         <hr></hr>
                         <h3>My Portfolio</h3>
-                        <button onClick={this.renderNewItemForm}>Add to my portfolio</button>
+                        <div className="form-padding">
+                            <Button onClick={this.renderNewItemForm}>Add to my portfolio</Button>
+                        </div>
                         {this.state.showForm ? 
                             <NewPortfolioItemForm 
                                 handleSubmit={this.handleSubmit}

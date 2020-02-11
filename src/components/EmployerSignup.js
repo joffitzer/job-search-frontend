@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Card from 'react-bootstrap/Card'
 
 
 class EmployerSignup extends React.Component {
@@ -59,7 +60,7 @@ class EmployerSignup extends React.Component {
         console.log('logged in user: ', this.props.loggedInUser)
 
         return (
-            <div>
+            <Container className="center">
                 {/* <h3>signup form to create a new employer</h3>
                 <form onSubmit={this.submitHandler}>
                     <label>Email<input type="text" name="email" value={this.state.email} placeholder="enter email" onChange={this.changeHandler} /></label>
@@ -71,48 +72,48 @@ class EmployerSignup extends React.Component {
                    
                     <input type="submit" value="submit" /> */}
 
-                  <Container>
+                  
                     <Row>
                       <Col></Col>
                       <Col>
+                        <Card bg="primary" text="white" style={{ width: '18rem' }}>
+                          <Form onSubmit={this.submitHandler}> 
+                            <Form.Group controlId={this.state.email}>
+                              <Form.Label>Email address</Form.Label>
+                              <Form.Control type="text" name="email" placeholder="Enter email" onChange={this.changeHandler}/>
+                            </Form.Group>
+
+                            <Form.Group controlId={this.state.password}>
+                              <Form.Label>Password</Form.Label>
+                              <Form.Control type="password" name="password" placeholder="Password" onChange={this.changeHandler}/>
+                            </Form.Group>
+
+                            <Form.Group controlId={this.state.name}>
+                              <Form.Label>Name</Form.Label>
+                              <Form.Control type="text" name="name" placeholder="Name" onChange={this.changeHandler}/>
+                            </Form.Group>
+
+                            <Form.Group controlId={this.state.description}>
+                              <Form.Label>Description</Form.Label>
+                              <Form.Control type="text" name="description" placeholder="Description" onChange={this.changeHandler}/>
+                            </Form.Group>
+
+                            <Form.Group controlId={this.state.logo}>
+                              <Form.Label>Logo</Form.Label>
+                              <Form.Control type="text" name="logo" placeholder="Logo" onChange={this.changeHandler}/>
+                            </Form.Group>
+
+                            <Form.Group controlId={this.state.industry}>
+                              <Form.Label>Industry</Form.Label>
+                              <Form.Control type="text" name="industry" placeholder="Industry" onChange={this.changeHandler}/>
+                            </Form.Group>
+                            
+                            <Button className="button-spacing" variant="outline-light" type="submit">
+                              Submit
+                            </Button>
+                          </Form>
+                        </Card>
                       
-                        <h1>Employer Signup</h1>
-                      
-                        <Form onSubmit={this.submitHandler}> 
-                          <Form.Group controlId={this.state.email}>
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control type="text" name="email" placeholder="Enter email" onChange={this.changeHandler}/>
-                          </Form.Group>
-
-                          <Form.Group controlId={this.state.password}>
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" name="password" placeholder="Password" onChange={this.changeHandler}/>
-                          </Form.Group>
-
-                          <Form.Group controlId={this.state.name}>
-                            <Form.Label>Name</Form.Label>
-                            <Form.Control type="text" name="name" placeholder="Name" onChange={this.changeHandler}/>
-                          </Form.Group>
-
-                          <Form.Group controlId={this.state.description}>
-                            <Form.Label>Description</Form.Label>
-                            <Form.Control type="text" name="description" placeholder="Description" onChange={this.changeHandler}/>
-                          </Form.Group>
-
-                          <Form.Group controlId={this.state.logo}>
-                            <Form.Label>Logo</Form.Label>
-                            <Form.Control type="text" name="logo" placeholder="Logo" onChange={this.changeHandler}/>
-                          </Form.Group>
-
-                          <Form.Group controlId={this.state.industry}>
-                            <Form.Label>Industry</Form.Label>
-                            <Form.Control type="text" name="industry" placeholder="Industry" onChange={this.changeHandler}/>
-                          </Form.Group>
-                          
-                          <Button variant="primary" type="submit">
-                            Submit
-                          </Button>
-                        </Form>
                       </Col>
                       <Col></Col>
                     </Row>
@@ -121,7 +122,6 @@ class EmployerSignup extends React.Component {
 
                 
 
-            </div>
         )
     }
 }

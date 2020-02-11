@@ -64,9 +64,8 @@ class JobsContainer extends React.Component {
         } 
 
         return (
-            <div>
               <Container>
-                  <form >
+                  <form className="form-padding">
                     <label>
                         Filter jobs by category:
                         <select value={this.props.filterValue} onChange={this.handleChange}>
@@ -83,7 +82,6 @@ class JobsContainer extends React.Component {
                          jobCards
                     } 
               </Container>
-            </div>
         )
     }
 }

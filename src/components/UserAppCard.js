@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import { connect as cnx } from 'react-redux';
 import { getJobs, showJob } from '../actionCreators'
+import Button from 'react-bootstrap/Button'
 
 class UserAppCard extends React.Component {
 
@@ -43,7 +44,7 @@ class UserAppCard extends React.Component {
                     <h5>Employer: {this.props.userApp.attributes.job.employer.name}</h5>
                     <h5>Your Mini Cover Letter: {this.props.userApp.attributes.mini_cl}</h5>
                         <Link to={`/jobs/${this.props.userApp.attributes.job.job.id}`}>
-                            <button onClick={() => this.props.showJob(jobObj)}>View Job Show Page</button>
+                            <Button onClick={() => this.props.showJob(jobObj)}>View Job Show Page</Button>
                         </Link>
                     <hr></hr>
             </div>

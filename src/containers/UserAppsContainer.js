@@ -37,7 +37,7 @@ class UserAppsContainer extends React.Component {
             <div>
               <Container>
 
-                <h1>My applications</h1>  
+                <h2>My applications</h2>  
                     {userAppCards ? userAppCards : "No apps yet"}
 
               </Container>

@@ -54,27 +54,13 @@ class JobShow extends React.Component {
             alreadyApplied = true
         }
 
-        // let job
-        // if (this.props.jobToShow) {
-        //     job = this.props.jobToShow
-        // } else {
-        //     job = this.props.allJobs.find(job => parseInt(job.id) === parseInt(this.props.match.params.id))
-        // }
-
         let job
         if (this.props.allJobs) {
             job = this.props.allJobs.find(job => parseInt(job.id) === parseInt(this.props.match.params.id))
             this.props.showJob(job)
         }
 
-        // let job
-        // if (this.props.allJobs.data) {
-        //     job = this.props.allJobs.data.filter(job => app.attributes.job.job.id === parseInt(this.props.match.params.id))
-        // }
-
         return(
-            <div>
-                {/* {job ? job.attributes.employer.name : "Job not found"} */}
                 <Container>
                     {job ? 
                     <div>
@@ -97,8 +83,6 @@ class JobShow extends React.Component {
                     null}
 
                 </Container>
-
-            </div>
         )
     }
 }

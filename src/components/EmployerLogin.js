@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Card from 'react-bootstrap/Card'
 
 class EmployerLogin extends React.Component {
     state = {
@@ -63,30 +64,29 @@ class EmployerLogin extends React.Component {
                       <input type="submit" value="submit" />
                   </form> */}
 
-                <Container>
+                <Container className="center">
                     <Row>
                       <Col></Col>
                       <Col>
-                      
-                        <h1>Employer Login</h1>
+                        <Card bg="primary" text="white" style={{ width: '18rem' }}>
+                            <Form onSubmit={this.submitHandler}> 
+                              <Form.Group controlId={this.state.email}>
+                                <Form.Label>Email address</Form.Label>
+                                <Form.Control type="text" name="email" placeholder="Enter email" onChange={this.changeHandler}/>
+                              </Form.Group>
 
-                        <Form onSubmit={this.submitHandler}> 
-                          <Form.Group controlId={this.state.email}>
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control type="text" name="email" placeholder="Enter email" onChange={this.changeHandler}/>
-                          </Form.Group>
+                              <Form.Group controlId={this.state.password}>
+                                <Form.Label>Password</Form.Label>
+                                <Form.Control type="password" name="password" placeholder="Password" onChange={this.changeHandler}/>
+                              </Form.Group>
+                              
+                              <Button className="button-spacing" variant="outline-light" type="submit">
+                                Submit
+                              </Button>
+                            </Form>
+                        </Card>
 
-                          <Form.Group controlId={this.state.password}>
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" name="password" placeholder="Password" onChange={this.changeHandler}/>
-                          </Form.Group>
-                          
-                          <Button variant="primary" type="submit">
-                            Submit
-                          </Button>
-                        </Form>
-
-                        </Col>
+                      </Col>
                       <Col></Col>
                     </Row>
                 </Container>

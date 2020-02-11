@@ -30,19 +30,37 @@ code {
 
 .cardLogo {
   display: inline-block;
-  width: 150px;
-  height: 150px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   object-fit: cover;
   float: right;
 }
 
-/* html { 
-  background-color: lightgray; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-} */
+.button-spacing {
+  margin-top: 0.50rem !important;
+  margin-bottom: 0.50rem !important;
+  margin-left: 0.50rem !important;
+  margin-right: 0.50rem !important;
+}
+
+.box {
+  border-style: solid;
+  border-width: medium;
+  padding-top: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  padding-left: 50px;
+}
+
+.form-padding {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.profile-buttons {
+  margin-top: 0.50rem !important;
+  margin-bottom: 0.50rem !important;
+}
 
 

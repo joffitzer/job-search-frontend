@@ -2,6 +2,7 @@ import React from 'react'
 import { connect as cnx } from 'react-redux';
 import { getJobs } from '../actionCreators'
 import JobCard from './JobCard'
+import Container from 'react-bootstrap/Container'
 
 
 class EmployerShowPage extends React.Component {
@@ -30,18 +31,16 @@ class EmployerShowPage extends React.Component {
         }
     
         return(
-            <div>
-                <h5>Employer Show Page</h5>
-                <h5>Name: {this.props.employerToShow.attributes.name}</h5>
-                <h5>Industry: {this.props.employerToShow.attributes.industry}</h5>
-                <h5>Description: {this.props.employerToShow.attributes.description}</h5>
+            <Container>
+                <h5>{this.props.employerToShow.attributes.name}</h5>
+                <h5><i>{this.props.employerToShow.attributes.industry}</i></h5>
+                <h5><sub>{this.props.employerToShow.attributes.description}</sub></h5>
 
                 <hr></hr>
 
                 <h5>All Jobs from this employer:</h5>
                 {employerJobs}
-                
-            </div>
+            </Container>
         )
 
     }
