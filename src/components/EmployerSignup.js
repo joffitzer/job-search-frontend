@@ -60,6 +60,12 @@ class EmployerSignup extends React.Component {
         console.log('logged in user: ', this.props.loggedInUser)
 
         return (
+
+          <div>
+            <img id="lp-background" src='https://wallpapercave.com/wp/wp2590323.png' alt="background" />
+
+
+
             <Container className="center">
                 {/* <h3>signup form to create a new employer</h3>
                 <form onSubmit={this.submitHandler}>
@@ -76,8 +82,8 @@ class EmployerSignup extends React.Component {
                     <Row>
                       <Col></Col>
                       <Col>
-                        <Card bg="primary" text="white" style={{ width: '25rem' }}>
-                          <Form onSubmit={this.submitHandler}> 
+                        <Card bg="primary" text="white" style={{ width: '30rem' }}>
+                          <Form className="wide-padding" onSubmit={this.submitHandler}> 
                             <Form.Group>
                               <Form.Label>Email address</Form.Label>
                               <Form.Control type="text" name="email" placeholder="Enter email" id={this.state.email} onChange={this.changeHandler}/>
@@ -119,6 +125,7 @@ class EmployerSignup extends React.Component {
                     </Row>
 
                   </Container>
+          </div>
 
                 
 

@@ -54,6 +54,8 @@ class EmployerLogin extends React.Component {
 
         return (
             <div>
+              <img id="lp-background" src='https://wallpapercave.com/wp/wp2590323.png' alt="background" />
+
 
                 
                   {/* <h3>login form to sign in an existing employer</h3> */}
@@ -68,8 +70,8 @@ class EmployerLogin extends React.Component {
                     <Row>
                       <Col></Col>
                       <Col>
-                        <Card bg="primary" text="white" style={{ width: '18rem' }}>
-                            <Form onSubmit={this.submitHandler}> 
+                        <Card bg="primary" text="white" style={{ width: '25rem' }}>
+                            <Form className="wide-padding" onSubmit={this.submitHandler}> 
                               <Form.Group>
                                 <Form.Label>Email address</Form.Label>
                                 <Form.Control type="text" name="email" placeholder="Enter email" id={this.state.email} onChange={this.changeHandler}/>

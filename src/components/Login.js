@@ -55,12 +55,15 @@ class Login extends React.Component {
         console.log('logged in user: ', this.props.loggedInUser)
 
         return (
+          <div>
+            <img id="lp-background" src='https://wallpapercave.com/wp/wp2590323.png' alt="background" />
+
                 <Container className="center">
                     <Row>
                       <Col></Col>
                       <Col>
-                        <Card bg="primary" text="white" style={{ width: '18rem' }}>
-                          <Form onSubmit={this.submitHandler}> 
+                        <Card bg="primary" text="white" style={{ width: '25rem' }}>
+                          <Form className="wide-padding" onSubmit={this.submitHandler}> 
                             <Form.Group>
                               <Form.Label>Email address</Form.Label>
                               <Form.Control type="text" name="email" placeholder="Enter email" id={this.state.email} onChange={this.changeHandler}/>
@@ -80,6 +83,7 @@ class Login extends React.Component {
                       <Col></Col>
                     </Row>
                 </Container>
+          </div>
         )
     }
 }
