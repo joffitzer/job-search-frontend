@@ -70,14 +70,14 @@ class EmployerLogin extends React.Component {
                       <Col>
                         <Card bg="primary" text="white" style={{ width: '18rem' }}>
                             <Form onSubmit={this.submitHandler}> 
-                              <Form.Group controlId={this.state.email}>
+                              <Form.Group>
                                 <Form.Label>Email address</Form.Label>
-                                <Form.Control type="text" name="email" placeholder="Enter email" onChange={this.changeHandler}/>
+                                <Form.Control type="text" name="email" placeholder="Enter email" id={this.state.email} onChange={this.changeHandler}/>
                               </Form.Group>
 
-                              <Form.Group controlId={this.state.password}>
+                              <Form.Group>
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" name="password" placeholder="Password" onChange={this.changeHandler}/>
+                                <Form.Control type="password" name="password" placeholder="Password" id={this.state.password} onChange={this.changeHandler}/>
                               </Form.Group>
                               
                               <Button className="button-spacing" variant="outline-light" type="submit">

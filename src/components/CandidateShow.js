@@ -1,5 +1,6 @@
 import React from 'react'
 import PortfolioShowCard from '../components/PortfolioShowCard'
+import Container from 'react-bootstrap/Container'
 
 class CandidateShow extends React.Component {
 
@@ -46,7 +47,7 @@ class CandidateShow extends React.Component {
         }
     
             return(
-                <div>
+                <Container>
                     {candidate ? 
                     
                     <div>
@@ -69,7 +70,7 @@ class CandidateShow extends React.Component {
 
                     {portfolioShowCards ? portfolioShowCards : ""}
     
-                </div>
+                </Container>
             )
         }
 

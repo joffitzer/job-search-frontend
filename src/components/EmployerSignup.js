@@ -78,34 +78,34 @@ class EmployerSignup extends React.Component {
                       <Col>
                         <Card bg="primary" text="white" style={{ width: '18rem' }}>
                           <Form onSubmit={this.submitHandler}> 
-                            <Form.Group controlId={this.state.email}>
+                            <Form.Group>
                               <Form.Label>Email address</Form.Label>
-                              <Form.Control type="text" name="email" placeholder="Enter email" onChange={this.changeHandler}/>
+                              <Form.Control type="text" name="email" placeholder="Enter email" id={this.state.email} onChange={this.changeHandler}/>
                             </Form.Group>
 
-                            <Form.Group controlId={this.state.password}>
+                            <Form.Group>
                               <Form.Label>Password</Form.Label>
-                              <Form.Control type="password" name="password" placeholder="Password" onChange={this.changeHandler}/>
+                              <Form.Control type="password" name="password" placeholder="Password" id={this.state.password} onChange={this.changeHandler}/>
                             </Form.Group>
 
-                            <Form.Group controlId={this.state.name}>
+                            <Form.Group>
                               <Form.Label>Name</Form.Label>
-                              <Form.Control type="text" name="name" placeholder="Name" onChange={this.changeHandler}/>
+                              <Form.Control type="text" name="name" placeholder="Name" id={this.state.name} onChange={this.changeHandler}/>
                             </Form.Group>
 
-                            <Form.Group controlId={this.state.description}>
+                            <Form.Group>
                               <Form.Label>Description</Form.Label>
-                              <Form.Control type="text" name="description" placeholder="Description" onChange={this.changeHandler}/>
+                              <Form.Control type="text" name="description" placeholder="Description" id={this.state.description} onChange={this.changeHandler}/>
                             </Form.Group>
 
-                            <Form.Group controlId={this.state.logo}>
+                            <Form.Group>
                               <Form.Label>Logo</Form.Label>
-                              <Form.Control type="text" name="logo" placeholder="Logo" onChange={this.changeHandler}/>
+                              <Form.Control type="text" name="logo" placeholder="Logo" id={this.state.logo} onChange={this.changeHandler}/>
                             </Form.Group>
 
-                            <Form.Group controlId={this.state.industry}>
+                            <Form.Group>
                               <Form.Label>Industry</Form.Label>
-                              <Form.Control type="text" name="industry" placeholder="Industry" onChange={this.changeHandler}/>
+                              <Form.Control type="text" name="industry" placeholder="Industry" id={this.state.industry} onChange={this.changeHandler}/>
                             </Form.Group>
                             
                             <Button className="button-spacing" variant="outline-light" type="submit">

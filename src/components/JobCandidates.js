@@ -3,6 +3,7 @@ import React from 'react'
 import CandidateCard from '../components/CandidateCard'
 import { connect as cnx } from 'react-redux';
 import { getUserApps, showJob } from '../actionCreators'
+import Container from 'react-bootstrap/Container'
 
 class JobCandidates extends React.Component {
 
@@ -32,10 +33,10 @@ class JobCandidates extends React.Component {
         } 
 
         return(
-            <div>
+            <Container>
                 <h5>Job Candidates</h5>
                 { candidates ? candidateCards : "No candidates yet!"}
-            </div>
+            </Container>
         )
 
     }

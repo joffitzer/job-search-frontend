@@ -69,6 +69,7 @@ class JobShow extends React.Component {
                         <h5>Location: {job.attributes.location}</h5>
                         <h5>Category: {job.attributes.category}</h5>
                         <h5>Summary: {job.attributes.summary}</h5>
+                        <h5>Description: {job.attributes.description}</h5>
                     </div>
                     : "Job not found"}
 

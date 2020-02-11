@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
+import LaunchpadLogo from '../LaunchpadLogo.png'
 
 
 class LandingPage extends React.Component {
@@ -13,6 +14,9 @@ class LandingPage extends React.Component {
         return(
             <div>
                 <Container className="center">  
+                        <Row className="justify-content-md-center">
+                            <img src={LaunchpadLogo} alt="logo"/>
+                        </Row>
                         <Row className="justify-content-md-center">
                             <Card bg="primary" text="white" style={{ width: '18rem' }}>
                                 <Card.Header>For Employers</Card.Header>
@@ -23,7 +27,8 @@ class LandingPage extends React.Component {
                                         <Link to="/employerlogin"><Button className="button-spacing" variant="outline-light">Employer Log In</Button></Link>
                                 </Card.Body>
                             </Card>
-                                <Col md="auto"></Col>
+                                <Col md="auto">
+                                </Col>
                             <Card bg="primary" text="white" style={{ width: '18rem' }}>
                                 <Card.Header>For Bootcamp Graduates</Card.Header>
                                 <Card.Body>

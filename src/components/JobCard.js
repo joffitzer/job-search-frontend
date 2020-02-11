@@ -9,13 +9,13 @@ const JobCard = (props) => {
 
     return(
             <Container>
-                    <p><b>{props.job.attributes.employer.name}</b></p>
+                    <font size="4">{props.job.attributes.employer.name}</font><br />
                     <img className="cardLogo" src={props.job.attributes.employer.logo} alt="logo"/>
-                    <b>{props.job.attributes.title}</b>
-                    <p><i>{props.job.attributes.location}</i></p>
-                    <i>{props.job.attributes.category}</i>
-                    <p><sub>{props.job.attributes.summary}</sub></p>
-                    <p><sub>${props.job.attributes.sal_range_low} - ${props.job.attributes.sal_range_high}</sub></p>
+                    <font size="3"><b>{props.job.attributes.title}</b></font><br />
+                    <font size="2"><i>{props.job.attributes.location}</i></font><br />
+                    <font size="2">{props.job.attributes.category}</font><br />
+                    <font size="2">{props.job.attributes.summary}</font><br />
+                    <font size="2"><i>${props.job.attributes.sal_range_low} - ${props.job.attributes.sal_range_high}</i></font><br />
                 
                     <Link to={`/jobs/${props.job.id}`}>
                         <Button variant="primary" onClick={() => props.showJob(props.job)}>View Job Details and Apply</Button>

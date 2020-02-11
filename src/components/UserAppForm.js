@@ -7,6 +7,27 @@ class UserAppForm extends React.Component {
         miniCl: ""
     }
 
+    sendEmail = () => {
+        console.log('console log in send email: ', this.props.jobToShow)
+        let user
+        let employer
+        if (this.props.loggedInUser.user) {
+            user = this.props.loggedInUser.user
+        } else {
+            user = this.props.loggedInUser
+        }
+        if (this.props.jobToShow.attributes){
+            employer = this.props.jobToShow.attributes.employer
+        }
+        window.emailjs
+          .send('default_service', 'contact_candidate', {
+            from_email: 'launchpad.tech.careers@gmail.com',
+            to_email: user.email,
+            message_html: employer.name
+          })
+          .catch(err => console.error('Failed to send message. Error: ', err))
+      }
+
     handleSubmitApplication = (e, user) => {
         e.preventDefault();
         fetch ('http://localhost:3000/api/v1/user_apps', {
@@ -22,7 +43,9 @@ class UserAppForm extends React.Component {
             })
         }).then(this.setState({
             miniCl: ""
-        })).then(() => 
+        }))
+        .then(this.sendEmail())
+        .then(() => 
             this.props.routerProps.history.push('/thanks')
         )
     }
