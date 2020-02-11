@@ -86,7 +86,7 @@ class EmployerJobsContainer extends React.Component {
             <div>
                 <Container>
 
-                    <h1>My Jobs</h1>
+                    <h1 className="form-padding">My Jobs</h1>
                         {myJobs.length ?  employerJobCards : "" } 
 
                 </Container>

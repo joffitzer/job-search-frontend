@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect as cnx} from 'react-redux'
+import Container from 'react-bootstrap/Container'
 
 class EmployerHome extends React.Component {
 
@@ -13,14 +14,14 @@ class EmployerHome extends React.Component {
         }
 
         return(
-            <div>
-                <h1>My Profile Information</h1>
+            <Container>
+                <h1 className="form-padding">My Profile Information</h1>
                         <h5>Name: {employer.name}</h5>
                         <img className="employerLogo" src={employer.logo} alt="logo"/>
                         <h5>Email: {employer.email}</h5>
                         <h5>Description: {employer.description}</h5>
                         <h5>Industry: {employer.industry}</h5>
-            </div>
+            </Container>
         )
     }
 }

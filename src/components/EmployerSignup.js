@@ -76,7 +76,7 @@ class EmployerSignup extends React.Component {
                     <Row>
                       <Col></Col>
                       <Col>
-                        <Card bg="primary" text="white" style={{ width: '18rem' }}>
+                        <Card bg="primary" text="white" style={{ width: '25rem' }}>
                           <Form onSubmit={this.submitHandler}> 
                             <Form.Group>
                               <Form.Label>Email address</Form.Label>
@@ -95,7 +95,7 @@ class EmployerSignup extends React.Component {
 
                             <Form.Group>
                               <Form.Label>Description</Form.Label>
-                              <Form.Control type="text" name="description" placeholder="Description" id={this.state.description} onChange={this.changeHandler}/>
+                              <Form.Control as="textarea" rows="3" type="text" name="description" placeholder="Description" id={this.state.description} onChange={this.changeHandler}/>
                             </Form.Group>
 
                             <Form.Group>

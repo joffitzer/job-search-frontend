@@ -50,12 +50,12 @@ class CandidateShow extends React.Component {
                 <Container>
                     {candidate ? 
                     
-                    <div>
-                        <h5>Name: {candidate.attributes.first_name} {candidate.attributes.last_name}</h5>
-                        <h5>Email: {candidate.attributes.email}</h5>
-                        <h5>Bootcamp: {candidate.attributes.bootcamp}</h5>
-                        <h5>Category: {candidate.attributes.category}</h5>
-                        <h5>Graduated: {candidate.attributes.grad_month} / {candidate.attributes.grad_year}</h5>
+                    <div className="form-padding">
+                        <h3><b>{candidate.attributes.first_name} {candidate.attributes.last_name}</b></h3>
+                        <font size="3"><i>{candidate.attributes.email}</i></font><br />
+                        <font>Bootcamp: {candidate.attributes.bootcamp}</font><br />
+                        <font>Category: {candidate.attributes.category}</font><br />
+                        <font>Graduated: {candidate.attributes.grad_month} / {candidate.attributes.grad_year}</font><br />
                     </div> 
 
                     : ""}
@@ -64,7 +64,7 @@ class CandidateShow extends React.Component {
 
                     {candidate ? 
                     <div>
-                        <h3>{candidate.attributes.first_name}'s Portfolio</h3>
+                        <h3>{candidate.attributes.first_name}'s Portfolio</h3><br />
                     </div>
                     : ""}
 

@@ -9,6 +9,8 @@ const CandidateCard = (props) => {
             <h5>Bootcamp: {props.candidate.bootcamp}</h5>
 
             <Link to={`/candidates/${props.candidate.id}`}>View Candidate Details</Link>
+            <br />
+            <hr />
         </Container>
     )
 }

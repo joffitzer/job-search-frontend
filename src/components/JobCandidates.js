@@ -34,7 +34,7 @@ class JobCandidates extends React.Component {
 
         return(
             <Container>
-                <h5>Job Candidates</h5>
+                <h5 className="form-padding">Job Candidates</h5>
                 { candidates ? candidateCards : "No candidates yet!"}
             </Container>
         )

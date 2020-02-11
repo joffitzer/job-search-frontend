@@ -3,9 +3,9 @@ import {Link} from 'react-router-dom'
 import { connect as cnx } from 'react-redux';
 import { showJob } from '../actionCreators'
 import Container from 'react-bootstrap/Container'
+import Button from 'react-bootstrap/Button'
 
 const EmployerJobCard = (props) => {
-    console.log('props on employer job card: ', props)
 
     return(
 
@@ -19,10 +19,11 @@ const EmployerJobCard = (props) => {
                 <h5>Salary Range: ${props.job.attributes.sal_range_low} - ${props.job.attributes.sal_range_high}</h5>
 
                     <Link to={`/candidates/job/${props.job.id}`}>
-                        <button onClick={() => props.showJob(props.job)}>View Candidates for this job</button>
+                        <Button onClick={() => props.showJob(props.job)}>View Candidates for this job</Button>
                     </Link>
-
-                    <button onClick={() => props.handleDeleteJob(props.job)}>Delete this job</button>
+                    <div className="top-padding">
+                        <Button onClick={() => props.handleDeleteJob(props.job)}>Delete this job</Button>
+                    </div>
 
                 <hr></hr>
 
