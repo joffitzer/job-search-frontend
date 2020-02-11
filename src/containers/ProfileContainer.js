@@ -229,7 +229,7 @@ class ProfileContainer extends React.Component {
         return (
             <div>
                 <Container>
-                    <h1>My Profile</h1>
+                    <h1 className="form-padding">My Profile</h1>
                         <hr></hr>
                         {this.props.isLoggedIn ? 
                             <div>

@@ -8,7 +8,6 @@ class UserAppForm extends React.Component {
     }
 
     sendEmail = () => {
-        console.log('console log in send email: ', this.props.jobToShow)
         let user
         let employer
         if (this.props.loggedInUser.user) {
@@ -68,7 +67,7 @@ class UserAppForm extends React.Component {
         return(
             <form onSubmit={(e) => this.handleSubmitApplication(e, user)}>
                 <label>
-                Mini Cover Letter, max ### characters:
+                Mini Cover Letter (max 500 characters):
                 <input type="text" value={this.state.miniCl} onChange={this.handleMiniClChange} />
                 </label>
     
