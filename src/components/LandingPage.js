@@ -5,8 +5,8 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
-import logo2 from '../logo2.png'
 import blue from '../blue.jpg'
+import largelogo from '../largelogo.png'
 
 
 class LandingPage extends React.Component {
@@ -20,7 +20,7 @@ class LandingPage extends React.Component {
                 {/* https://b.stripecdn.com/site-srv/assets/img/blog/posts/connect-frontend/header-background-fca7c86a3378d48e2f3bf0ccda9e7fbfa2bebe96.png' */}
                 <Container className="center">  
                         <Row className="justify-content-md-center">
-                            <img src={logo2} alt="logo"/>
+                            <img src={largelogo} alt="logo"/>
                         </Row>
                         <br /><br />
                         <Row className="justify-content-md-center">

@@ -82,4 +82,13 @@ code {
   min-height: 100%;
 }
 
+.bring-to-front {
+  z-index: 3;
+}
+
+/* #below-to-front {
+  position: absolute;
+  z-index: 3;
+} */
+
 

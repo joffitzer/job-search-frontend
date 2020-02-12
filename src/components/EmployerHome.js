@@ -17,7 +17,9 @@ class EmployerHome extends React.Component {
             <Container>
                 <h1 className="form-padding">My Profile Information</h1>
                         <h5>Name: {employer.name}</h5>
-                        <img className="employerLogo" src={employer.logo} alt="logo"/>
+                        <div className="form-padding">
+                            <img className="employerLogo" src={employer.logo} alt="logo"/>
+                        </div>
                         <h5>Email: {employer.email}</h5>
                         <h5>Description: {employer.description}</h5>
                         <h5>Industry: {employer.industry}</h5>

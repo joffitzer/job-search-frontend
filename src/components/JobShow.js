@@ -79,7 +79,7 @@ class JobShow extends React.Component {
                         : "Job not found"}
 
                         {alreadyApplied ? 
-                        "You applied to this job already" 
+                        <font size="5" className="form-padding"><b><i>*You've already applied to this job'*</i></b></font> 
                         : 
                         <Button className="button-spacing" variant="outline-light" onClick={this.clickApply}>Click here to Apply</Button>}
                         
