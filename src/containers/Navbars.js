@@ -16,7 +16,7 @@ class Navbars extends React.Component {
     render() {
 
         return (
-            <div>
+            <div className="bring-to-front">
                 {this.props.loggedInUser ? 
                     <div>
                         {(this.props.loggedInUser.logo || this.props.loggedInUser.employer) ? 

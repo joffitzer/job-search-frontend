@@ -7,6 +7,8 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
+import blue from '../blue.jpg'
+
 
 class Signup extends React.Component {
     state = {
@@ -15,7 +17,7 @@ class Signup extends React.Component {
         first_name: "",
         last_name: "",
         bootcamp: "",
-        category: "",
+        category: "Software Engineering",
         grad_month: "",
         grad_year: ""
     }
@@ -64,7 +66,7 @@ class Signup extends React.Component {
 
         return (
           <div>
-            <img id="lp-background" src='https://wallpapercave.com/wp/wp2590323.png' alt="background" />
+            <img id="lp-background" src={blue} alt="background" />
                 <Container className="center">
                     <Row>
                       <Col></Col>

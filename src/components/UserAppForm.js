@@ -1,5 +1,7 @@
 import React from 'react'
 import { connect as cnx } from 'react-redux';
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 class UserAppForm extends React.Component {
 
@@ -65,14 +67,24 @@ class UserAppForm extends React.Component {
         }
 
         return(
-            <form onSubmit={(e) => this.handleSubmitApplication(e, user)}>
-                <label>
-                Mini Cover Letter (max 500 characters):
-                <input type="text" value={this.state.miniCl} onChange={this.handleMiniClChange} />
-                </label>
+            // <form onSubmit={(e) => this.handleSubmitApplication(e, user)}>
+            //     <label>
+            //     Mini Cover Letter (max 500 characters):
+            //     <input type="text" value={this.state.miniCl} onChange={this.handleMiniClChange} />
+            //     </label>
     
-                <input type="submit" value="Submit" />
-            </form>
+            //     <input type="submit" value="Submit" />
+            // </form>
+                <Form className="wide-padding" onSubmit={(e) => this.handleSubmitApplication(e, user)}> 
+                    <Form.Group>
+                    <Form.Label>Mini Cover Letter (max 500 characters):</Form.Label>
+                    <Form.Control as="textarea" rows="3" type="text" name="miniCl" placeholder="Mini Cover Letter" id={this.state.miniCl} onChange={this.handleMiniClChange}/>
+                    </Form.Group>
+                    
+                    <Button className="button-spacing" variant="outline-light" type="submit">
+                    Submit Application
+                    </Button>
+                </Form>
         )
     }
 }

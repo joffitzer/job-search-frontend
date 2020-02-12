@@ -40,6 +40,12 @@ class JobShow extends React.Component {
             user = this.props.loggedInUser
         }
 
+        let job
+        if (this.props.allJobs.length > 0) {
+            job = this.props.allJobs.find(job => parseInt(job.id) === parseInt(this.props.match.params.id))
+            this.props.showJob(job)
+        }
+
         let userJobsAppliedTo
         if (this.props.allUserApps.data) {
             userJobsAppliedTo = this.props.allUserApps.data.filter(userApp => userApp.attributes.user.id === user.id)
@@ -51,15 +57,11 @@ class JobShow extends React.Component {
         }
 
         let alreadyApplied
-        if (jobIdsAppliedTo && jobIdsAppliedTo.includes(parseInt(this.props.jobToShow.id))){
-            alreadyApplied = true
-        }
-
-        let job
-        if (this.props.allJobs) {
-            job = this.props.allJobs.find(job => parseInt(job.id) === parseInt(this.props.match.params.id))
-            this.props.showJob(job)
-        }
+        if (!!jobIdsAppliedTo && !!job){
+            if (jobIdsAppliedTo.includes(parseInt(job.id))){
+                alreadyApplied = true
+            }
+        } 
 
         return(
                 <Container className="center">
