@@ -15,9 +15,6 @@ class LandingPage extends React.Component {
         return(
             <div>
                 <img id="lp-background" src={blue} alt="background" />
-                {/* https://wallpapercave.com/wp/wp2590323.png */}
-                {/* https://img.wallpapersafari.com/desktop/1680/1050/49/90/piUcJ3.jpg */}
-                {/* https://b.stripecdn.com/site-srv/assets/img/blog/posts/connect-frontend/header-background-fca7c86a3378d48e2f3bf0ccda9e7fbfa2bebe96.png' */}
                 <Container className="center">  
                         <Row className="justify-content-md-center">
                             <img src={largelogo} alt="logo"/>

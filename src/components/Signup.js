@@ -62,8 +62,6 @@ class Signup extends React.Component {
 
     render() {
 
-        console.log('logged in user: ', this.props.loggedInUser)
-
         return (
           <div>
             <img id="lp-background" src={blue} alt="background" />
@@ -147,55 +145,3 @@ const mapDispatchToProps = (dispatch) => {
   }
 
 export default cnx(mapStateToProps, mapDispatchToProps)(Signup);
-
-
-
-// <Form onSubmit={this.submitHandler}> 
-//                             <Form.Group controlId={this.state.email}>
-//                               <Form.Label>Email address</Form.Label>
-//                               <Form.Control type="text" name="email" placeholder="Enter email" onChange={this.changeHandler}/>
-//                             </Form.Group>
-
-//                             <Form.Group controlId={this.state.password}>
-//                               <Form.Label>Password</Form.Label>
-//                               <Form.Control type="password" name="password" placeholder="Password" onChange={this.changeHandler}/>
-//                             </Form.Group>
-
-//                             <Form.Group controlId={this.state.first_name}>
-//                               <Form.Label>First Name</Form.Label>
-//                               <Form.Control type="text" name="first_name" placeholder="First Name" onChange={this.changeHandler}/>
-//                             </Form.Group>
-
-//                             <Form.Group controlId={this.state.last_name}>
-//                               <Form.Label>Last Name</Form.Label>
-//                               <Form.Control type="text" name="last_name" placeholder="Last Name" onChange={this.changeHandler}/>
-//                             </Form.Group>
-
-//                             <Form.Group controlId={this.state.bootcamp}>
-//                               <Form.Label>Bootcamp</Form.Label>
-//                               <Form.Control type="text" name="bootcamp" placeholder="Bootcamp" onChange={this.changeHandler}/>
-//                             </Form.Group>
-                            
-//                             <Form.Group controlId={this.state.category}>
-//                               <Form.Label>Category</Form.Label>
-//                               <Form.Control as="select" name="category" placeholder="category" onChange={this.changeHandler}>
-//                                 <option>Software Engineering</option>
-//                                 <option>Data Science</option>
-//                                 <option>UX/UI Design</option>
-//                               </Form.Control>
-//                             </Form.Group>
-
-//                             <Form.Group controlId={this.state.grad_month}>
-//                               <Form.Label>Grad Month</Form.Label>
-//                               <Form.Control type="text" name="grad_month" placeholder="Grad Month" onChange={this.changeHandler}/>
-//                             </Form.Group>
-
-//                             <Form.Group controlId={this.state.grad_year}>
-//                               <Form.Label>Grad Year</Form.Label>
-//                               <Form.Control type="text" name="grad_year" placeholder="Grad Year" onChange={this.changeHandler}/>
-//                             </Form.Group>
-                            
-//                             <Button className="button-spacing" variant="outline-light" type="submit">
-//                               Submit
-//                             </Button>
-//                           </Form>

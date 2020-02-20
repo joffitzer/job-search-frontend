@@ -59,7 +59,6 @@ class Login extends React.Component {
         return (
           <div>
             <img id="lp-background" src={blue} alt="background" />
-
                 <Container className="center">
                     <Row>
                       <Col></Col>
@@ -104,45 +103,3 @@ const mapDispatchToProps = (dispatch) => {
   }
 
 export default cnx(mapStateToProps, mapDispatchToProps)(Login);
-
-
-
-//old one
-
-//     componentDidMount() {
-//         fetch ('http://localhost:3000/api/v1/users')
-//             .then(res => res.json())
-//             .then(userObj => {
-//                 console.log(userObj)
-//                 this.setState({
-//                     user: userObj
-//                 })
-//             })
-//     }
-    
-//     render(){
-
-//         console.log('state of user: ', this.state.user)
-
-//         let user
-
-//         if (this.state.user.data) {
-//             user = this.state.user.data[0]
-//         }
-
-//         return(
-//             <div>
-//                 <h1>Login</h1>
-//                 <button onClick={() => this.props.logInUser(user)}>Log In</button>
-//             </div>
-//         )
-//     }
-// }
-
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//       logInUser: (user) => dispatch(logInUser(user))
-//     }
-//   }
-
-// export default cnx(null, mapDispatchToProps)(Login);

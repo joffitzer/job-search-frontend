@@ -10,7 +10,6 @@ class Navbars extends React.Component {
         this.props.logOutUser()
         }
 
-
     render() {
 
         return (

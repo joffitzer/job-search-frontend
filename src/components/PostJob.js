@@ -1,7 +1,5 @@
 import React from 'react'
 import { connect as cnx } from 'react-redux';
-// import { logInUser } from '../actionCreators'
-// import { Link } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
@@ -51,15 +49,7 @@ class PostJob extends React.Component {
         .then(res => res.json())
         .then(res => console.log(res))
         .then(() => 
-        this.props.history.push('/jobposted')
-    )
-        // .then(formattedItem => this.setState({
-        //     allPortfolioItems: [...this.state.allPortfolioItems, formattedItem],
-        //     showForm: !this.state.showForm,
-        //     titleValue: "",
-        //     blurbValue: "",
-        //     urlValue: ""
-        // }))
+        this.props.history.push('/jobposted'))
     }
 
     changeHandler = (e) => {
@@ -72,7 +62,7 @@ class PostJob extends React.Component {
         return(
             <div>
 
-            <Container>
+              <Container>
                     <Row>
                       <Col></Col>
                       <Col>
@@ -130,7 +120,7 @@ class PostJob extends React.Component {
                       <Col></Col>
                     </Row>
 
-                  </Container>
+                </Container>
             </div>
         )
     }
@@ -142,11 +132,5 @@ const mapStateToProps = (state) => {
         loggedInUser
     }
   }
-
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//       logInUser: (user) => dispatch(logInUser(user)),
-//     }
-//   }
 
 export default cnx(mapStateToProps, null)(PostJob);

@@ -25,10 +25,10 @@ class JobShow extends React.Component {
                 this.props.getUserApps(userApps)
             })
             .then( fetch ('http://localhost:3000/api/v1/jobs')
-                    .then(res => res.json())
-                    .then(jobs => {
-                        this.props.getJobs(jobs)
-                    }))
+            .then(res => res.json())
+            .then(jobs => {
+                this.props.getJobs(jobs)
+            }))
     }
 
     render() {

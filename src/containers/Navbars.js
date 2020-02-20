@@ -29,21 +29,9 @@ class Navbars extends React.Component {
                                             <Nav.Link href='/' onClick={this.logout}>Log Out</Nav.Link>
                                         </Nav>
                                 </Navbar>
-                                {/* <div>Employer Nav</div>
-                                    <Link to="/employerhome"><div>Employer Home</div></Link>
-                                    <Link to="/postjob"><div>Post a job</div></Link>
-                                    <Link to="/myjobs"><div>My Jobs</div></Link> 
-                                    <Link to="/"><div onClick={this.logout}>Log Out</div></Link>  */}
                             </div>
                         : 
                             <div>
-                                {/* <div>User Nav</div> */}
-                                    {/* <Link to="/home"><div>Home</div></Link>
-                                    <Link to="/employers"><div>All Employers</div></Link>
-                                    <Link to="/jobs"><div>All Jobs</div></Link>
-                                    <Link to="/myapps"><div>My Applications</div></Link>
-                                    <Link to="/profile"><div>My Profile</div></Link>
-                                    <Link to="/"><div onClick={this.logout}>Log Out</div></Link> */}
                                     <Navbar bg="primary" variant="dark">
                                     <Navbar.Brand href="/home">Home</Navbar.Brand>
                                         <Nav className="mr-auto">

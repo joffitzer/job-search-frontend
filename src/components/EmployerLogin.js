@@ -58,16 +58,6 @@ class EmployerLogin extends React.Component {
             <div>
               <img id="lp-background" src={blue} alt="background" />
 
-
-                
-                  {/* <h3>login form to sign in an existing employer</h3> */}
-                  {/* <form onSubmit={this.submitHandler}>
-                      <label>Email<input type="text" name="email" value={this.state.email} placeholder="enter email" onChange={this.changeHandler} /></label>
-                      <label>Password<input type="text" name="password" value={this.state.password} placeholder="enter password" onChange={this.changeHandler} /></label>
-              
-                      <input type="submit" value="submit" />
-                  </form> */}
-
                 <Container className="center">
                     <Row>
                       <Col></Col>

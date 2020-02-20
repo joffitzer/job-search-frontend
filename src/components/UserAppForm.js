@@ -67,14 +67,6 @@ class UserAppForm extends React.Component {
         }
 
         return(
-            // <form onSubmit={(e) => this.handleSubmitApplication(e, user)}>
-            //     <label>
-            //     Mini Cover Letter (max 500 characters):
-            //     <input type="text" value={this.state.miniCl} onChange={this.handleMiniClChange} />
-            //     </label>
-    
-            //     <input type="submit" value="Submit" />
-            // </form>
                 <Form className="wide-padding" onSubmit={(e) => this.handleSubmitApplication(e, user)}> 
                     <Form.Group>
                     <Form.Label>Mini Cover Letter (max 500 characters):</Form.Label>

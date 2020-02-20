@@ -39,8 +39,6 @@ class EmployerShowPage extends React.Component {
                 return <JobCard key={empJob.id} job={empJob} />
             })
         }
-
-        console.log('employerJobs: ', employerJobs)
     
         return(
             <Container>

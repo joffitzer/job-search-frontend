@@ -1,5 +1,4 @@
 import React from 'react'
-// import {Link} from 'react-router-dom'
 import CandidateCard from '../components/CandidateCard'
 import { connect as cnx } from 'react-redux';
 import { getUserApps, showJob } from '../actionCreators'
@@ -26,7 +25,6 @@ class JobCandidates extends React.Component {
         let candidateCards
         if (jobApps) {
             candidates = jobApps.map(app => app.attributes.user)
-            console.log('candidates: ', candidates)
             candidateCards = candidates.map(candidate => {
                 return <CandidateCard key={candidate.id} candidate={candidate}/>
             })
@@ -38,9 +36,7 @@ class JobCandidates extends React.Component {
                 { candidates ? candidateCards : "No candidates yet!"}
             </Container>
         )
-
     }
-
 }
 
 const mapStateToProps = (state) => {

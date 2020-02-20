@@ -44,7 +44,7 @@ class UserAppCard extends React.Component {
                     <h5>Employer: {this.props.userApp.attributes.job.employer.name}</h5>
                     <h5>Your Mini Cover Letter: {this.props.userApp.attributes.mini_cl}</h5>
                         <Link to={`/jobs/${this.props.userApp.attributes.job.job.id}`}>
-                            <Button onClick={() => this.props.showJob(jobObj)}>View Job Show Page</Button>
+                            <Button onClick={() => this.props.showJob(jobObj)}>View Job</Button>
                         </Link>
                     <hr></hr>
             </div>

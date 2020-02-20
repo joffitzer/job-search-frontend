@@ -26,27 +26,6 @@ class EmployerJobsContainer extends React.Component {
    
     render() {
 
-        // let filteredJobs
-
-        // if (this.props.filterValue.length){
-        //   switch (this.props.filterValue) {
-        //     case "All Jobs":
-        //         filteredJobs = this.props.allJobs
-        //       break;
-        //     case "Software Engineering":
-        //         filteredJobs = this.props.allJobs.filter(jobObj => jobObj.attributes.category === "Software Engineering")
-        //       break;
-        //     case "Data Science":
-        //         filteredJobs = this.props.allJobs.filter(jobObj => jobObj.attributes.category === "Data Science")
-        //       break;
-        //     case "UX/UI Design":
-        //         filteredJobs = this.props.allJobs.filter(jobObj => jobObj.attributes.category === "UX/UI Design")
-        //       break;
-        //     default:
-        //       break;
-        //   }
-        // }
-
         let myJobs
         let employerJobCards
 
@@ -65,22 +44,6 @@ class EmployerJobsContainer extends React.Component {
                 return <EmployerJobCard key={jobObj.id} job={jobObj} handleDeleteJob={this.handleDeleteJob} />
             })
         }
-
-        // if (this.props.allJobs){
-        //   if (this.props.filterValue.length){
-        //       if(filteredJobs.length){
-        //         jobCards = filteredJobs.map( jobObj => {
-        //           return <JobCard key={jobObj.id} job={jobObj} />
-        //         })
-        //       } else {
-        //         jobCards = "No jobs posted in this category yet"
-        //       }
-        //   } else {
-        //     jobCards = this.props.allJobs.map( jobObj => {
-        //     return <JobCard key={jobObj.id} job={jobObj} />
-        //     })
-        //   }
-        // } 
 
         return (
             <div>

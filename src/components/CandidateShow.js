@@ -24,11 +24,8 @@ class CandidateShow extends React.Component {
         )
     }
 
-
     render(){
-
-        console.log('all portfolio items: ', this.state.allPortfolioItems)
-
+        
         let candidate
         if (this.state.allUsers.length) {
             candidate = this.state.allUsers.find(user => parseInt(user.id) === parseInt(this.props.match.params.id))
