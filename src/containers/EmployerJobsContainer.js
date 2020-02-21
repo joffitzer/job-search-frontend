@@ -8,14 +8,14 @@ import Container from 'react-bootstrap/Container'
 
 class EmployerJobsContainer extends React.Component {
 
-    componentDidMount() {
-        fetch ('http://localhost:3000/api/v1/jobs')
-            .then(res => res.json())
-            .then(jobs => {
-                this.props.getJobs(jobs)
-            })
-            // .then(this.props.setFilterValue("All Jobs"))
-    }
+    // componentDidMount() {
+    //     fetch ('http://localhost:3000/api/v1/jobs')
+    //         .then(res => res.json())
+    //         .then(jobs => {
+    //             this.props.getJobs(jobs)
+    //         })
+    //         // .then(this.props.setFilterValue("All Jobs"))
+    // }
 
     handleDeleteJob = (job) => {
         fetch(`http://localhost:3000/api/v1/jobs/${job.id}`,  {
