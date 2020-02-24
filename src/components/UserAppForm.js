@@ -9,7 +9,27 @@ class UserAppForm extends React.Component {
         miniCl: ""
     }
 
-    sendEmail = () => {
+    // sendEmail = () => {
+    //     let user
+    //     let employer
+    //     if (this.props.loggedInUser.user) {
+    //         user = this.props.loggedInUser.user
+    //     } else {
+    //         user = this.props.loggedInUser
+    //     }
+    //     if (this.props.jobToShow.attributes){
+    //         employer = this.props.jobToShow.attributes.employer
+    //     }
+    //     window.emailjs
+    //       .send('default_service', 'contact_candidate', {
+    //         from_email: 'launchpad.tech.careers@gmail.com',
+    //         to_email: user.email,
+    //         message_html: employer.name
+    //       })
+    //       .catch(err => console.error('Failed to send message. Error: ', err))
+    //   }
+
+      sendEmail = () => {
         let user
         let employer
         if (this.props.loggedInUser.user) {
@@ -26,7 +46,7 @@ class UserAppForm extends React.Component {
             to_email: user.email,
             message_html: employer.name
           })
-          .catch(err => console.error('Failed to send message. Error: ', err))
+          .catch(error => console.error('Failed to send message. Error: ', error))
       }
 
     handleSubmitApplication = (e, user) => {
