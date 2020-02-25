@@ -5,7 +5,7 @@ import LoggedOutNav from './components/LoggedOutNav'
 import { connect as cnx } from 'react-redux';
 import { logInUser } from './actionCreators'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { getJobs } from './actionCreators' 
+import { getJobs, getEmployers } from './actionCreators' 
 
 class App extends React.Component {
 
@@ -26,14 +26,6 @@ class App extends React.Component {
         })
     }
   }
-
-  componentDidMount() {
-    fetch ('http://localhost:3000/api/v1/jobs')
-        .then(res => res.json())
-        .then(jobs => {
-            this.props.getJobs(jobs)
-        })
-}
 
   render(){
     
@@ -59,6 +51,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     logInUser: (user) => dispatch(logInUser(user)),
     getJobs: (jobs) => dispatch(getJobs(jobs)),
+    getEmployers: (employers) => dispatch(getEmployers(employers))
   }
 }
 

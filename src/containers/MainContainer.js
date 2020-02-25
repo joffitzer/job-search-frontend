@@ -19,33 +19,59 @@ import JobsContainer from '../containers/JobsContainer'
 import JobShow from '../components/JobShow'
 import ProfileContainer from '../containers/ProfileContainer'
 import UserAppsContainer from '../containers/UserAppsContainer'
+import { connect as cnx } from 'react-redux';
+import { getJobs, getEmployers } from '../actionCreators'
 
-const MainContainer = () => {
-    return (
-        <div>
-            {/* <h1>Main Container</h1> */}
-            <Route exact path="/" render={(routerProps) => <LandingPage {...routerProps}/>} />
-            <Route exact path="/employersignup" render={(routerProps) => <EmployerSignup {...routerProps}/>} />
-            <Route exact path="/employerlogin" render={(routerProps) => <EmployerLogin {...routerProps}/>} />
-            <Route exact path="/employerhome" render={(routerProps) => <EmployerHome {...routerProps}/>} />
-            <Route exact path="/postjob" render={(routerProps) => <PostJob {...routerProps}/>} />
-            <Route exact path="/jobposted" render={(routerProps) => <JobPosted {...routerProps}/>} />
-            <Route exact path="/myjobs" render={(routerProps) => <EmployerJobsContainer {...routerProps}/>} />
-            <Route exact path="/candidates/job/:id" render={(routerProps) => <JobCandidates {...routerProps}/>} />
-            <Route exact path="/candidates/:id" render={(routerProps) => <CandidateShow {...routerProps}/>} />
-            <Route exact path="/signup" render={(routerProps) => <Signup {...routerProps}/>} />
-            <Route exact path="/login" render={(routerProps) => <Login {...routerProps}/>} />
-            {/* <Route exact path="/logout" component={Logout} /> */}
-            <Route exact path="/thanks" component={Thanks} />
-            <Route exact path="/profile" component={ProfileContainer} />
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/employers" component={EmployersContainer} />
-            <Route exact path="/employers/:id" component={EmployerShow} />
-            <Route exact path="/jobs" component={JobsContainer} />
-            <Route exact path="/jobs/:id" render={(routerProps) => <JobShow {...routerProps} />}/>
-            <Route exact path="/myapps" component={UserAppsContainer} />
-        </div>
-    )
+class MainContainer extends React.Component {
+
+    componentDidMount() {
+        fetch ('http://localhost:3000/api/v1/jobs')
+            .then(res => res.json())
+            .then(jobs => {
+                this.props.getJobs(jobs)
+            })
+            .then (fetch ('http://localhost:3000/api/v1/employers')
+              .then(res => res.json())
+              .then(employers => {
+                  this.props.getEmployers(employers)
+              })
+        )
+    }
+
+    render() {
+        return (
+            <div>
+                {/* <h1>Main Container</h1> */}
+                <Route exact path="/" render={(routerProps) => <LandingPage {...routerProps}/>} />
+                <Route exact path="/employersignup" render={(routerProps) => <EmployerSignup {...routerProps}/>} />
+                <Route exact path="/employerlogin" render={(routerProps) => <EmployerLogin {...routerProps}/>} />
+                <Route exact path="/employerhome" render={(routerProps) => <EmployerHome {...routerProps}/>} />
+                <Route exact path="/postjob" render={(routerProps) => <PostJob {...routerProps}/>} />
+                <Route exact path="/jobposted" render={(routerProps) => <JobPosted {...routerProps}/>} />
+                <Route exact path="/myjobs" render={(routerProps) => <EmployerJobsContainer {...routerProps}/>} />
+                <Route exact path="/candidates/job/:id" render={(routerProps) => <JobCandidates {...routerProps}/>} />
+                <Route exact path="/candidates/:id" render={(routerProps) => <CandidateShow {...routerProps}/>} />
+                <Route exact path="/signup" render={(routerProps) => <Signup {...routerProps}/>} />
+                <Route exact path="/login" render={(routerProps) => <Login {...routerProps}/>} />
+                {/* <Route exact path="/logout" component={Logout} /> */}
+                <Route exact path="/thanks" component={Thanks} />
+                <Route exact path="/profile" component={ProfileContainer} />
+                <Route exact path="/home" component={Home} />
+                <Route exact path="/employers" component={EmployersContainer} />
+                <Route exact path="/employers/:id" component={EmployerShow} />
+                <Route exact path="/jobs" component={JobsContainer} />
+                <Route exact path="/jobs/:id" render={(routerProps) => <JobShow {...routerProps} />}/>
+                <Route exact path="/myapps" component={UserAppsContainer} />
+            </div>
+        )
+    }
 }
 
-export default MainContainer;
+const mapDispatchToProps = (dispatch) => {
+    return {
+      getJobs: (jobs) => dispatch(getJobs(jobs)),
+      getEmployers: (employers) => dispatch(getEmployers(employers))
+    }
+  }
+  
+  export default cnx(null, mapDispatchToProps)(MainContainer);

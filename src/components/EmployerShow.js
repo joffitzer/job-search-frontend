@@ -1,25 +1,10 @@
 import React from 'react'
 import { connect as cnx } from 'react-redux';
-import { getJobs, getEmployers } from '../actionCreators'
 import JobCard from './JobCard'
 import Container from 'react-bootstrap/Container'
 
 
 class EmployerShowPage extends React.Component {
-
-    componentDidMount() {
-        fetch ('http://localhost:3000/api/v1/jobs')
-            .then(res => res.json())
-            .then(jobs => {
-                this.props.getJobs(jobs)
-            })
-            .then (fetch ('http://localhost:3000/api/v1/employers')
-                .then(res => res.json())
-                .then(employers => {
-                    this.props.getEmployers(employers)
-                })
-            )
-    }
 
     render() {
 
@@ -65,11 +50,4 @@ const mapStateToProps = (state) => {
     }
   }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-      getJobs: (jobs) => dispatch(getJobs(jobs)),
-      getEmployers: (employers) => dispatch(getEmployers(employers))
-    }
-  }
-
-export default cnx(mapStateToProps, mapDispatchToProps)(EmployerShowPage);
+export default cnx(mapStateToProps, null)(EmployerShowPage);
