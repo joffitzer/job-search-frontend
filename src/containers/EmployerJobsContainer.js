@@ -1,21 +1,11 @@
 import React from 'react';
 import { connect as cnx } from 'react-redux';
 import EmployerJobCard from '../components/EmployerJobCard'
-// import JobShow from '../components/JobShow'
-import { getJobs, showJob, deleteJob } from '../actionCreators';
+import { deleteJob } from '../actionCreators';
 import Container from 'react-bootstrap/Container'
 
 
 class EmployerJobsContainer extends React.Component {
-
-    // componentDidMount() {
-    //     fetch ('http://localhost:3000/api/v1/jobs')
-    //         .then(res => res.json())
-    //         .then(jobs => {
-    //             this.props.getJobs(jobs)
-    //         })
-    //         // .then(this.props.setFilterValue("All Jobs"))
-    // }
 
     handleDeleteJob = (job) => {
         fetch(`http://localhost:3000/api/v1/jobs/${job.id}`,  {
@@ -67,8 +57,6 @@ const mapStateToProps = (state) => {
   
 const mapDispatchToProps = (dispatch) => {
     return {
-      getJobs: (jobs) => dispatch(getJobs(jobs)),
-      showJob: (job) => dispatch(showJob(job)),
       deleteJob: (job) => dispatch(deleteJob(job))
     }
   }

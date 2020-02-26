@@ -1,7 +1,6 @@
 import React from 'react'
 import EmployerCard from '../components/EmployerCard'
 import { connect as cnx } from 'react-redux';
-import { getEmployers } from '../actionCreators'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 
@@ -9,14 +8,6 @@ class EmployersContainer extends React.Component {
 
     state = {
         sort: false
-    }
-
-    componentDidMount() {
-        fetch ('http://localhost:3000/api/v1/employers')
-            .then(res => res.json())
-            .then(employers => {
-                this.props.getEmployers(employers)
-            })
     }
 
     handleAlphaSort = () => {
@@ -65,11 +56,5 @@ const mapStateToProps = (state) => {
       allEmployers
     }
 }
-  
-const mapDispatchToProps = (dispatch) => {
-    return {
-      getEmployers: (employers) => dispatch(getEmployers(employers))
-    }
-}
 
-export default cnx(mapStateToProps, mapDispatchToProps)(EmployersContainer);
+export default cnx(mapStateToProps, null)(EmployersContainer);
