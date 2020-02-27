@@ -8,15 +8,6 @@ import Container from 'react-bootstrap/Container'
 
 class JobsContainer extends React.Component {
 
-    componentDidMount() {
-        fetch ('http://localhost:3000/api/v1/jobs')
-            .then(res => res.json())
-            .then(jobs => {
-                this.props.getJobs(jobs)
-            })
-            // .then(this.props.setFilterValue("All Jobs"))
-    }
-
     handleChange = (e) => {
       this.props.setFilterValue(e.target.value)
     }
