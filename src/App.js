@@ -5,7 +5,8 @@ import LoggedOutNav from './components/LoggedOutNav'
 import { connect as cnx } from 'react-redux';
 import { logInUser } from './actionCreators'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { getJobs, getEmployers } from './actionCreators' 
+// import { getJobs, getEmployers } from './actionCreators' 
+// Move these fetches to app??
 
 class App extends React.Component {
 
@@ -49,9 +50,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logInUser: (user) => dispatch(logInUser(user)),
-    getJobs: (jobs) => dispatch(getJobs(jobs)),
-    getEmployers: (employers) => dispatch(getEmployers(employers))
+    logInUser: (user) => dispatch(logInUser(user))
+    // getJobs: (jobs) => dispatch(getJobs(jobs)),
+    // getEmployers: (employers) => dispatch(getEmployers(employers))
   }
 }
 

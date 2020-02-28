@@ -20,7 +20,7 @@ import JobShow from '../components/JobShow'
 import ProfileContainer from '../containers/ProfileContainer'
 import UserAppsContainer from '../containers/UserAppsContainer'
 import { connect as cnx } from 'react-redux';
-import { getJobs, getEmployers } from '../actionCreators'
+import { getJobs, getEmployers, getUserApps } from '../actionCreators'
 
 class MainContainer extends React.Component {
 
@@ -34,8 +34,13 @@ class MainContainer extends React.Component {
               .then(res => res.json())
               .then(employers => {
                   this.props.getEmployers(employers)
-              })
-        )
+            })
+            .then(fetch ('http://localhost:3000/api/v1/user_apps')
+              .then(res => res.json())
+              .then(userApps => {
+                  this.props.getUserApps(userApps)
+            })
+        ))
     }
 
     render() {
@@ -70,7 +75,8 @@ class MainContainer extends React.Component {
 const mapDispatchToProps = (dispatch) => {
     return {
       getJobs: (jobs) => dispatch(getJobs(jobs)),
-      getEmployers: (employers) => dispatch(getEmployers(employers))
+      getEmployers: (employers) => dispatch(getEmployers(employers)),
+      getUserApps: (userApps) => dispatch (getUserApps(userApps))
     }
   }
   

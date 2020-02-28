@@ -7,13 +7,15 @@ import Container from 'react-bootstrap/Container'
 
 class UserAppsContainer extends React.Component {
 
-    componentDidMount() {
-        fetch ('http://localhost:3000/api/v1/user_apps')
-            .then(res => res.json())
-            .then(userApps => {
-                this.props.getUserApps(userApps)
-            })
-    }
+    // componentDidMount() {
+    //     fetch ('http://localhost:3000/api/v1/user_apps')
+    //         .then(res => res.json())
+    //         .then(userApps => {
+    //             this.props.getUserApps(userApps)
+    //         })
+    // }
+
+    //faster with the component did mount than calling this fetch in the main container?
    
     render() {
 
@@ -53,10 +55,10 @@ const mapStateToProps = (state) => {
     }
   }
   
-const mapDispatchToProps = (dispatch) => {
-    return {
-      getUserApps: (userApps) => dispatch(getUserApps(userApps)),
-    }
-  }
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//       getUserApps: (userApps) => dispatch(getUserApps(userApps)),
+//     }
+//   }
 
-export default cnx(mapStateToProps, mapDispatchToProps)(UserAppsContainer);
+export default cnx(mapStateToProps, null)(UserAppsContainer);
