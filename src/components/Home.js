@@ -46,7 +46,10 @@ class Home extends React.Component {
                                         <Link to={`/jobs`}>
                                             <Button variant="primary" onClick={() => this.props.setFilterValue(this.state.jobType)}>Search Jobs</Button>
                                         </Link>
-                                </h3>                                                  
+                                </h3>    
+                                <Link to={`/employers`}>
+                                    <h3 className="box">Show me all employers</h3> 
+                                </Link>                                                 
                         </Col>
                     </Row>
                 </Container>
